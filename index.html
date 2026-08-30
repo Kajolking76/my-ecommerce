@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>শখের কুঞ্জ | শখের জুয়েলারি</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,"Noto Sans Bengali",sans-serif;
+    background:#080808;
+    color:#fff;
+    overflow-x:hidden;
+}
+
+/* =========================
+   LOADING SCREEN
+========================= */
+
+.loader{
+    position:fixed;
+    inset:0;
+    background:#050505;
+    z-index:9999;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    animation:hideLoader 1s ease 2.7s forwards;
+}
+
+.loader img{
+    width:145px;
+    height:145px;
+    object-fit:contain;
+    animation:logoReveal 1.4s ease;
+}
+
+.loader h2{
+    margin-top:12px;
+    font-size:22px;
+    color:#e6bd70;
+    letter-spacing:2px;
+    animation:textReveal 1.5s ease;
+}
+
+.loader p{
+    margin-top:7px;
+    color:#b89a61;
+    font-size:12px;
+    letter-spacing:3px;
+}
+
+@keyframes logoReveal{
+    from{
+        opacity:0;
+        transform:scale(.5) rotate(-10deg);
+    }
+    to{
+        opacity:1;
+        transform:scale(1) rotate(0);
+    }
+}
+
+@keyframes textReveal{
+    from{
+        opacity:0;
+        transform:translateY(15px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes hideLoader{
+    to{
+        opacity:0;
+        visibility:hidden;
+        pointer-events:none;
+    }
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:70px;
+    z-index:1000;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:0 18px;
+
+    background:rgba(5,5,5,.78);
+    backdrop-filter:blur(12px);
+
+    border-bottom:1px solid rgba(218,174,91,.18);
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+
+.brand img{
+    width:45px;
+    height:45px;
+    object-fit:contain;
+}
+
+.brand span{
+    font-size:17px;
+    font-weight:bold;
+    color:#e6bd70;
+}
+
+.header-icons{
+    display:flex;
+    gap:15px;
+}
+
+.icon{
+    font-size:21px;
+    cursor:pointer;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    min-height:100vh;
+    padding:120px 20px 70px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+
+    position:relative;
+
+    background:
+    radial-gradient(circle at 50% 35%,
+    rgba(195,145,58,.17),
+    transparent 40%),
+    #080808;
+}
+
+.hero:before{
+    content:"";
+    position:absolute;
+    width:260px;
+    height:260px;
+    border:1px solid rgba(225,181,95,.18);
+    border-radius:50%;
+    animation:rotate 18s linear infinite;
+}
+
+@keyframes rotate{
+    from{transform:rotate(0deg)}
+    to{transform:rotate(360deg)}
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+}
+
+.hero-logo{
+    width:220px;
+    max-width:75vw;
+    margin-bottom:20px;
+
+    animation:
+    floating 4s ease-in-out infinite;
+}
+
+@keyframes floating{
+    0%,100%{transform:translateY(0)}
+    50%{transform:translateY(-10px)}
+}
+
+.hero h1{
+    font-size:34px;
+    color:#e6bd70;
+    margin-bottom:12px;
+}
+
+.hero p{
+    color:#d0c6b5;
+    line-height:1.7;
+    font-size:15px;
+    max-width:420px;
+    margin:auto;
+}
+
+.shop-btn{
+    display:inline-block;
+    margin-top:25px;
+    padding:14px 32px;
+
+    color:#080808;
+    background:linear-gradient(
+        135deg,
+        #f4d58e,
+        #c99742
+    );
+
+    border-radius:30px;
+    text-decoration:none;
+    font-weight:bold;
+
+    box-shadow:0 8px 30px rgba(211,164,73,.22);
+
+    transition:.3s;
+}
+
+.shop-btn:active{
+    transform:scale(.94);
+}
+
+
+/* =========================
+   SECTION
+========================= */
+
+section{
+    padding:55px 18px;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:28px;
+}
+
+.section-title h2{
+    color:#e6bd70;
+    font-size:25px;
+}
+
+.section-title p{
+    color:#8f887d;
+    margin-top:7px;
+    font-size:13px;
+}
+
+
+/* =========================
+   CATEGORY SLIDER
+========================= */
+
+.category-slider{
+    display:flex;
+    gap:15px;
+    overflow-x:auto;
+    padding-bottom:10px;
+
+    scrollbar-width:none;
+}
+
+.category-slider::-webkit-scrollbar{
+    display:none;
+}
+
+.category{
+    min-width:125px;
+    height:150px;
+
+    border-radius:18px;
+
+    background:
+    linear-gradient(
+        145deg,
+        #19140d,
+        #0d0d0d
+    );
+
+    border:1px solid rgba(225,181,95,.18);
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+
+    transition:.3s;
+}
+
+.category:active{
+    transform:scale(.94);
+}
+
+.category-icon{
+    width:70px;
+    height:70px;
+
+    border-radius:50%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:rgba(225,181,95,.09);
+
+    font-size:30px;
+    margin-bottom:12px;
+}
+
+.category span{
+    color:#d8c5a2;
+    font-size:14px;
+}
+
+
+/* =========================
+   PRODUCT SLIDER
+========================= */
+
+.product-slider{
+    display:flex;
+    gap:18px;
+    overflow-x:auto;
+
+    padding-bottom:15px;
+
+    scrollbar-width:none;
+}
+
+.product-slider::-webkit-scrollbar{
+    display:none;
+}
+
+.product{
+    min-width:220px;
+
+    background:#111;
+
+    border:1px solid rgba(225,181,95,.15);
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.3);
+
+    transition:.3s;
+}
+
+.product:active{
+    transform:scale(.97);
+}
+
+.product-image{
+    height:240px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #17130d,
+        #0c0c0c
+    );
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    position:relative;
+}
+
+.product-image span{
+    font-size:55px;
+    opacity:.75;
+}
+
+.badge{
+    position:absolute;
+    top:12px;
+    left:12px;
+
+    background:#c99742;
+    color:#090909;
+
+    padding:5px 9px;
+    border-radius:20px;
+
+    font-size:10px;
+    font-weight:bold;
+}
+
+.product-info{
+    padding:15px;
+}
+
+.product-info h3{
+    font-size:16px;
+    margin-bottom:8px;
+}
+
+.product-info p{
+    color:#8f887d;
+    font-size:12px;
+    margin-bottom:12px;
+}
+
+.price{
+    color:#e6bd70;
+    font-size:18px;
+    font-weight:bold;
+}
+
+.cart-btn{
+    width:100%;
+    margin-top:12px;
+
+    padding:10px;
+
+    border:1px solid #9d783b;
+
+    background:transparent;
+    color:#e6bd70;
+
+    border-radius:9px;
+
+    cursor:pointer;
+}
+
+
+/* =========================
+   OFFER BANNER
+========================= */
+
+.offer{
+    margin:10px 18px 45px;
+
+    padding:35px 20px;
+
+    border-radius:22px;
+
+    text-align:center;
+
+    background:
+    radial-gradient(
+        circle at center,
+        rgba(210,165,78,.20),
+        transparent 65%
+    ),
+    #111;
+
+    border:1px solid rgba(225,181,95,.2);
+}
+
+.offer h2{
+    color:#e6bd70;
+    font-size:25px;
+}
+
+.offer p{
+    color:#c2b7a4;
+    margin:10px 0 20px;
+    font-size:14px;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    padding:40px 20px 90px;
+
+    text-align:center;
+
+    background:#050505;
+
+    border-top:1px solid rgba(225,181,95,.12);
+}
+
+.footer-logo{
+    width:100px;
+    margin-bottom:15px;
+}
+
+footer h3{
+    color:#e6bd70;
+}
+
+footer p{
+    color:#777;
+    font-size:12px;
+    margin-top:8px;
+}
+
+
+/* =========================
+   BOTTOM NAVIGATION
+========================= */
+
+.bottom-nav{
+    position:fixed;
+
+    bottom:0;
+    left:0;
+
+    width:100%;
+    height:65px;
+
+    background:rgba(10,10,10,.92);
+
+    backdrop-filter:blur(15px);
+
+    border-top:1px solid rgba(225,181,95,.18);
+
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+
+    z-index:2000;
+}
+
+.nav-item{
+    text-align:center;
+    color:#777;
+    font-size:10px;
+}
+
+.nav-item div{
+    font-size:21px;
+    margin-bottom:3px;
+}
+
+.nav-item.active{
+    color:#e6bd70;
+}
+
+
+/* =========================
+   SCROLL ANIMATION
+========================= */
+
+.reveal{
+    opacity:0;
+    transform:translateY(35px);
+    transition:1s ease;
+}
+
+.reveal.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- LOADING -->
+
+<div class="loader">
+
+    <img src="logo.png">
+
+    <h2>শখের কুঞ্জ</h2>
+
+    <p>শখের জুয়েলারি</p>
+
+</div>
+
+
+<!-- HEADER -->
+
+<header>
+
+    <div class="brand">
+
+        <img src="logo.png">
+
+        <span>শখের কুঞ্জ</span>
+
+    </div>
+
+    <div class="header-icons">
+
+        <div class="icon">♡</div>
+
+        <div class="icon">🛒</div>
+
+    </div>
+
+</header>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <img
+            class="hero-logo"
+            src="logo.png"
+        >
+
+        <h1>তোমার শখের ঠিকানা ✨</h1>
+
+        <p>
+            সৌন্দর্য, স্টাইল আর ভালোবাসার
+            প্রতিটি মুহূর্তকে আরও বিশেষ করে তুলতে
+            শখের কুঞ্জ।
+        </p>
+
+        <a
+            href="#products"
+            class="shop-btn"
+        >
+            SHOP NOW ✨
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- CATEGORY -->
+
+<section class="reveal">
+
+    <div class="section-title">
+
+        <h2>ক্যাটাগরি</h2>
+
+        <p>তোমার পছন্দের কালেকশন বেছে নাও</p>
+
+    </div>
+
+
+    <div class="category-slider">
+
+        <div class="category">
+
+            <div class="category-icon">
+                💎
+            </div>
+
+            <span>জুয়েলারি</span>
+
+        </div>
+
+
+        <div class="category">
+
+            <div class="category-icon">
+                💖
+            </div>
+
+            <span>অ্যাক্সেসরিজ</span>
+
+        </div>
+
+
+        <div class="category">
+
+            <div class="category-icon">
+                🎀
+            </div>
+
+            <span>হেয়ার অ্যাক্সেসরিজ</span>
+
+        </div>
+
+
+        <div class="category">
+
+            <div class="category-icon">
+                🌸
+            </div>
+
+            <span>নিউ কালেকশন</span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- PRODUCTS -->
+
+<section
+    class="reveal"
+    id="products"
+>
+
+    <div class="section-title">
+
+        <h2>✨ New Arrivals</h2>
+
+        <p>আমাদের নতুন কালেকশন</p>
+
+    </div>
+
+
+    <div class="product-slider">
+
+
+        <div class="product">
+
+            <div class="product-image">
+
+                <div class="badge">
+                    NEW
+                </div>
+
+                <span>💎</span>
+
+            </div>
+
+            <div class="product-info">
+
+                <h3>
+                    Elegant Earrings
+                </h3>
+
+                <p>
+                    Premium collection
+                </p>
+
+                <div class="price">
+                    ৳299
+                </div>
+
+                <button
+                    class="cart-btn"
+                    onclick="addCart()"
+                >
+                    🛒 Add to Cart
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="product">
+
+            <div class="product-image">
+
+                <div class="badge">
+                    BEST
+                </div>
+
+                <span>🌸</span>
+
+            </div>
+
+            <div class="product-info">
+
+                <h3>
+                    Fashion Bracelet
+                </h3>
+
+                <p>
+                    Stylish & beautiful
+                </p>
+
+                <div class="price">
+                    ৳399
+                </div>
+
+                <button
+                    class="cart-btn"
+                    onclick="addCart()"
+                >
+                    🛒 Add to Cart
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="product">
+
+            <div class="product-image">
+
+                <span>🎀</span>
+
+            </div>
+
+            <div class="product-info">
+
+                <h3>
+                    Hair Accessories
+                </h3>
+
+                <p>
+                    Cute collection
+                </p>
+
+                <div class="price">
+                    ৳199
+                </div>
+
+                <button
+                    class="cart-btn"
+                    onclick="addCart()"
+                >
+                    🛒 Add to Cart
+                </button>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- OFFER -->
+
+<div class="offer reveal">
+
+    <h2>
+        🎁 Special Offer
+    </h2>
+
+    <p>
+        তোমার প্রিয় পণ্যে থাকছে
+        বিশেষ অফার!
+    </p>
+
+    <a
+        href="#products"
+        class="shop-btn"
+    >
+        Explore Collection
+    </a>
+
+</div>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <img
+        src="logo.png"
+        class="footer-logo"
+    >
+
+    <h3>
+        শখের কুঞ্জ
+    </h3>
+
+    <p>
+        শখের জুয়েলারি
+    </p>
+
+    <p>
+        © 2026 Shokher Kunjo
+    </p>
+
+</footer>
+
+
+<!-- BOTTOM NAV -->
+
+<div class="bottom-nav">
+
+    <div class="nav-item active">
+
+        <div>⌂</div>
+
+        Home
+
+    </div>
+
+
+    <div class="nav-item">
+
+        <div>♡</div>
+
+        Wishlist
+
+    </div>
+
+
+    <div class="nav-item">
+
+        <div>🛍️</div>
+
+        Shop
+
+    </div>
+
+
+    <div class="nav-item">
+
+        <div>🛒</div>
+
+        Cart
+
+    </div>
+
+
+    <div class="nav-item">
+
+        <div>☰</div>
+
+        Menu
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* =========================
+   SCROLL REVEAL
+========================= */
+
+const reveals =
+document.querySelectorAll(".reveal");
+
+const observer =
+new IntersectionObserver(
+(entries) => {
+
+    entries.forEach(entry => {
+
+        if(entry.isIntersecting){
+
+            entry.target.classList.add("show");
+
+        }
+
+    });
+
+},
+{
+    threshold:.15
+});
+
+
+reveals.forEach(
+el => observer.observe(el)
+);
+
+
+/* =========================
+   CART TEST
+========================= */
+
+function addCart(){
+
+    alert(
+        "✨ পণ্যটি আপনার Cart-এ যোগ হয়েছে!"
+    );
+
+}
+
+</script>
+
+
+</body>
+</html>
