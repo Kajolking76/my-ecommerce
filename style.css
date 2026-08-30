@@ -1,0 +1,1251 @@
+/* =====================================================
+🟣 শখের কুঞ্জ - PROFESSIONAL E-COMMERCE DESIGN
+
+এই ফাইলে Website-এর:
+
+🎨 Color
+📱 Mobile Design
+🖥️ Desktop Design
+🛍️ Product Card
+🛒 Cart
+❤️ Wishlist
+🚚 Checkout
+
+সব Design রয়েছে।
+
+===================================================== */
+
+
+/* =====================================================
+🔵 BASIC SETTINGS
+===================================================== */
+
+*{
+
+    margin:0;
+
+    padding:0;
+
+    box-sizing:border-box;
+
+}
+
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+
+body{
+
+    font-family:
+    Arial,
+    "Noto Sans Bengali",
+    sans-serif;
+
+    background:#080808;
+
+    color:#ffffff;
+
+    min-height:100vh;
+
+}
+
+
+button,
+input,
+textarea{
+
+    font-family:inherit;
+
+}
+
+
+/* =====================================================
+🟡 LOADER
+===================================================== */
+
+.loader{
+
+    position:fixed;
+
+    inset:0;
+
+    background:#050505;
+
+    z-index:9999;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    transition:.6s;
+
+}
+
+
+.loader.hide{
+
+    opacity:0;
+
+    visibility:hidden;
+
+}
+
+
+.loader img{
+
+    width:140px;
+
+    height:140px;
+
+    object-fit:contain;
+
+}
+
+
+.loader h2{
+
+    color:#e6bd70;
+
+    margin-top:15px;
+
+}
+
+
+.loader p{
+
+    color:#a88a55;
+
+    margin-top:6px;
+
+}
+
+
+/* =====================================================
+🟢 HEADER
+===================================================== */
+
+header{
+
+    position:sticky;
+
+    top:0;
+
+    z-index:1000;
+
+    height:70px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    padding:0 18px;
+
+    background:rgba(8,8,8,.96);
+
+    border-bottom:
+    1px solid
+    rgba(230,189,112,.18);
+
+    backdrop-filter:blur(12px);
+
+}
+
+
+.brand{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    cursor:pointer;
+
+}
+
+
+.brand img{
+
+    width:44px;
+
+    height:44px;
+
+    object-fit:contain;
+
+}
+
+
+.brand span{
+
+    color:#e6bd70;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+}
+
+
+.header-actions{
+
+    display:flex;
+
+    gap:8px;
+
+}
+
+
+.header-actions button{
+
+    position:relative;
+
+    background:transparent;
+
+    border:none;
+
+    color:#ffffff;
+
+    font-size:21px;
+
+    cursor:pointer;
+
+    padding:6px;
+
+}
+
+
+.count{
+
+    position:absolute;
+
+    top:-2px;
+
+    right:-4px;
+
+    background:#c99742;
+
+    color:#080808;
+
+    font-size:9px;
+
+    width:17px;
+
+    height:17px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+}
+
+
+/* =====================================================
+🏠 MAIN PAGE
+===================================================== */
+
+main{
+
+    min-height:calc(100vh - 70px);
+
+}
+
+
+.page{
+
+    padding:35px 18px 60px;
+
+    max-width:1200px;
+
+    margin:auto;
+
+}
+
+
+.hidden{
+
+    display:none !important;
+
+}
+
+
+/* =====================================================
+✨ HOME HERO
+===================================================== */
+
+.home-hero{
+
+    text-align:center;
+
+    padding:30px 0 45px;
+
+}
+
+
+.hero-logo{
+
+    width:160px;
+
+    max-width:65vw;
+
+    margin-bottom:18px;
+
+}
+
+
+.home-hero h1{
+
+    color:#e6bd70;
+
+    font-size:30px;
+
+    margin-bottom:10px;
+
+}
+
+
+.home-hero p{
+
+    color:#aaa;
+
+    font-size:14px;
+
+}
+
+
+/* =====================================================
+📌 SECTION TITLE
+===================================================== */
+
+.section-title{
+
+    text-align:center;
+
+    margin-bottom:30px;
+
+}
+
+
+.section-title h2{
+
+    color:#e6bd70;
+
+    font-size:24px;
+
+}
+
+
+.section-title p{
+
+    color:#888;
+
+    font-size:13px;
+
+    margin-top:8px;
+
+}
+
+
+/* =====================================================
+📂 CATEGORY GRID
+===================================================== */
+
+.category-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(2,1fr);
+
+    gap:15px;
+
+    max-width:900px;
+
+    margin:auto;
+
+}
+
+
+.category-card{
+
+    position:relative;
+
+    height:230px;
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+    cursor:pointer;
+
+    border:
+    1px solid
+    rgba(230,189,112,.25);
+
+    background:#111;
+
+    transition:.3s;
+
+}
+
+
+.category-card:hover{
+
+    transform:translateY(-4px);
+
+}
+
+
+.category-card img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+}
+
+
+.category-card::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+    linear-gradient(
+        to top,
+        rgba(0,0,0,.9),
+        transparent 60%
+    );
+
+}
+
+
+.category-info{
+
+    position:absolute;
+
+    bottom:0;
+
+    left:0;
+
+    z-index:2;
+
+    width:100%;
+
+    padding:16px;
+
+}
+
+
+.category-info h3{
+
+    color:#ffffff;
+
+    font-size:17px;
+
+}
+
+
+.category-info p{
+
+    color:#e6bd70;
+
+    font-size:12px;
+
+    margin-top:5px;
+
+}
+
+
+/* =====================================================
+⬅️ BACK BUTTON
+===================================================== */
+
+.back-btn{
+
+    background:#151515;
+
+    color:#e6bd70;
+
+    border:
+    1px solid
+    rgba(230,189,112,.25);
+
+    padding:10px 15px;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    margin-bottom:25px;
+
+}
+
+
+/* =====================================================
+🛍️ PRODUCT GRID
+===================================================== */
+
+.product-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(2,1fr);
+
+    gap:15px;
+
+}
+
+
+.product{
+
+    background:#111;
+
+    border-radius:15px;
+
+    overflow:hidden;
+
+    border:
+    1px solid
+    rgba(230,189,112,.15);
+
+}
+
+
+.product-image{
+
+    position:relative;
+
+    height:200px;
+
+    background:#171717;
+
+}
+
+
+.product-image img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+}
+
+
+.discount-badge{
+
+    position:absolute;
+
+    top:10px;
+
+    left:10px;
+
+    background:#d9534f;
+
+    color:white;
+
+    padding:5px 8px;
+
+    border-radius:15px;
+
+    font-size:10px;
+
+    font-weight:bold;
+
+}
+
+
+.favorite{
+
+    position:absolute;
+
+    top:8px;
+
+    right:8px;
+
+    width:36px;
+
+    height:36px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:rgba(0,0,0,.65);
+
+    color:white;
+
+    font-size:21px;
+
+    cursor:pointer;
+
+}
+
+
+.favorite.active{
+
+    color:#ff5a7b;
+
+}
+
+
+.stock-out{
+
+    position:absolute;
+
+    top:50%;
+
+    left:50%;
+
+    transform:translate(-50%,-50%);
+
+    background:rgba(0,0,0,.85);
+
+    color:#ff6565;
+
+    padding:10px;
+
+    border-radius:8px;
+
+    font-size:12px;
+
+    font-weight:bold;
+
+}
+
+
+.product-info{
+
+    padding:13px;
+
+}
+
+
+.product-info h3{
+
+    font-size:15px;
+
+    margin-bottom:8px;
+
+}
+
+
+.old-price{
+
+    color:#777;
+
+    text-decoration:line-through;
+
+    font-size:12px;
+
+}
+
+
+.price{
+
+    color:#e6bd70;
+
+    font-size:19px;
+
+    font-weight:bold;
+
+    margin:5px 0 10px;
+
+}
+
+
+.product-buttons{
+
+    display:flex;
+
+    gap:7px;
+
+}
+
+
+.cart-btn,
+.buy-btn{
+
+    flex:1;
+
+    padding:9px 5px;
+
+    border-radius:7px;
+
+    cursor:pointer;
+
+    font-size:11px;
+
+}
+
+
+.cart-btn{
+
+    background:transparent;
+
+    border:1px solid #a9803d;
+
+    color:#e6bd70;
+
+}
+
+
+.buy-btn{
+
+    border:none;
+
+    background:#c99742;
+
+    color:#080808;
+
+    font-weight:bold;
+
+}
+
+
+.cart-btn:disabled,
+.buy-btn:disabled{
+
+    opacity:.4;
+
+    cursor:not-allowed;
+
+}
+
+
+/* =====================================================
+🛒 CART
+===================================================== */
+
+.cart-list{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:15px;
+
+}
+
+
+.cart-item{
+
+    display:flex;
+
+    gap:12px;
+
+    background:#111;
+
+    padding:12px;
+
+    border-radius:12px;
+
+}
+
+
+.cart-item img{
+
+    width:80px;
+
+    height:80px;
+
+    object-fit:cover;
+
+    border-radius:8px;
+
+}
+
+
+.cart-info{
+
+    flex:1;
+
+}
+
+
+.cart-info h3{
+
+    font-size:15px;
+
+}
+
+
+.cart-price{
+
+    color:#e6bd70;
+
+    margin:7px 0;
+
+}
+
+
+.quantity-controls{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+}
+
+
+.quantity-controls button{
+
+    width:28px;
+
+    height:28px;
+
+    border:none;
+
+    border-radius:5px;
+
+    cursor:pointer;
+
+    background:#222;
+
+    color:#fff;
+
+}
+
+
+.remove-btn{
+
+    margin-top:7px;
+
+    background:none;
+
+    border:none;
+
+    color:#ff6666;
+
+    cursor:pointer;
+
+}
+
+
+.cart-summary{
+
+    margin-top:25px;
+
+    background:#111;
+
+    padding:20px;
+
+    border-radius:15px;
+
+}
+
+
+.checkout-btn{
+
+    width:100%;
+
+    padding:14px;
+
+    margin-top:15px;
+
+    border:none;
+
+    border-radius:8px;
+
+    background:#c99742;
+
+    color:#080808;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+}
+
+
+/* =====================================================
+🚚 CHECKOUT
+===================================================== */
+
+.checkout-layout{
+
+    display:grid;
+
+    gap:20px;
+
+}
+
+
+.checkout-form,
+.order-summary{
+
+    background:#111;
+
+    padding:20px;
+
+    border-radius:15px;
+
+    border:
+    1px solid
+    rgba(230,189,112,.12);
+
+}
+
+
+.checkout-form h3,
+.order-summary h3{
+
+    color:#e6bd70;
+
+    margin-bottom:15px;
+
+}
+
+
+.checkout-form input,
+.checkout-form textarea,
+.coupon-row input,
+.account-box input{
+
+    width:100%;
+
+    background:#0b0b0b;
+
+    color:#fff;
+
+    border:
+    1px solid
+    rgba(255,255,255,.12);
+
+    padding:13px;
+
+    border-radius:8px;
+
+    margin-bottom:12px;
+
+    outline:none;
+
+}
+
+
+.checkout-form textarea{
+
+    height:90px;
+
+    resize:vertical;
+
+}
+
+
+.coupon-box{
+
+    margin-top:10px;
+
+    padding-top:15px;
+
+    border-top:1px solid #333;
+
+}
+
+
+.coupon-box p{
+
+    font-size:12px;
+
+    color:#888;
+
+    margin-bottom:8px;
+
+}
+
+
+.coupon-row{
+
+    display:flex;
+
+    gap:8px;
+
+}
+
+
+.coupon-row input{
+
+    margin:0;
+
+}
+
+
+.coupon-row button{
+
+    background:#c99742;
+
+    color:#080808;
+
+    border:none;
+
+    padding:0 15px;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+}
+
+
+.bill-row{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    padding:10px 0;
+
+    border-bottom:1px solid #292929;
+
+    color:#bbb;
+
+    font-size:14px;
+
+}
+
+
+.bill-row.total{
+
+    color:#e6bd70;
+
+    font-size:19px;
+
+    font-weight:bold;
+
+}
+
+
+.confirm-btn{
+
+    width:100%;
+
+    margin-top:18px;
+
+    padding:15px;
+
+    border:none;
+
+    border-radius:8px;
+
+    background:#c99742;
+
+    color:#080808;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+}
+
+
+.checkout-product{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    margin-bottom:10px;
+
+    font-size:13px;
+
+    color:#bbb;
+
+}
+
+
+/* =====================================================
+👤 CUSTOMER ACCOUNT
+===================================================== */
+
+.account-box{
+
+    max-width:450px;
+
+    margin:auto;
+
+    background:#111;
+
+    padding:25px;
+
+    border-radius:18px;
+
+}
+
+
+.account-box h2{
+
+    color:#e6bd70;
+
+    text-align:center;
+
+    margin-bottom:25px;
+
+}
+
+
+.account-box h3{
+
+    margin-bottom:15px;
+
+}
+
+
+.account-box button{
+
+    width:100%;
+
+    padding:14px;
+
+    border:none;
+
+    border-radius:8px;
+
+    background:#c99742;
+
+    color:#080808;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+}
+
+
+.switch-link{
+
+    text-align:center;
+
+    margin-top:18px;
+
+    color:#e6bd70;
+
+    font-size:13px;
+
+    cursor:pointer;
+
+}
+
+
+/* =====================================================
+📦 EMPTY MESSAGE
+===================================================== */
+
+.empty-message{
+
+    text-align:center;
+
+    padding:45px 10px;
+
+    color:#888;
+
+    grid-column:1/-1;
+
+}
+
+
+/* =====================================================
+🔻 FOOTER
+===================================================== */
+
+footer{
+
+    text-align:center;
+
+    padding:40px 20px;
+
+    background:#050505;
+
+    border-top:
+    1px solid
+    rgba(230,189,112,.12);
+
+}
+
+
+footer img{
+
+    width:80px;
+
+}
+
+
+footer h3{
+
+    color:#e6bd70;
+
+    margin-top:10px;
+
+}
+
+
+footer p{
+
+    color:#777;
+
+    font-size:12px;
+
+    margin-top:7px;
+
+}
+
+
+/* =====================================================
+🖥️ DESKTOP RESPONSIVE DESIGN
+===================================================== */
+
+@media(min-width:700px){
+
+    .category-grid{
+
+        grid-template-columns:
+        repeat(4,1fr);
+
+    }
+
+
+    .product-grid{
+
+        grid-template-columns:
+        repeat(4,1fr);
+
+    }
+
+
+    .product-image{
+
+        height:260px;
+
+    }
+
+
+    .checkout-layout{
+
+        grid-template-columns:
+        1fr 1fr;
+
+    }
+
+}
