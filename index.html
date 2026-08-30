@@ -1,1 +1,1322 @@
+<!DOCTYPE html>
+<html lang="bn">
 
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>শখের কুঞ্জ | শখের জুয়েলারি</title>
+
+<style>
+
+/* =========================
+   RESET
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:
+    Arial,
+    "Noto Sans Bengali",
+    sans-serif;
+
+    background:#080808;
+    color:#ffffff;
+
+    overflow-x:hidden;
+
+    padding-bottom:75px;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+header{
+
+    position:sticky;
+
+    top:0;
+
+    width:100%;
+
+    height:72px;
+
+    z-index:1000;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    padding:0 18px;
+
+    background:
+    rgba(8,8,8,.97);
+
+    border-bottom:
+    1px solid
+    rgba(218,174,91,.18);
+
+}
+
+
+.brand{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+}
+
+
+.brand img{
+
+    width:46px;
+
+    height:46px;
+
+    object-fit:contain;
+
+}
+
+
+.brand span{
+
+    color:#e6bd70;
+
+    font-size:20px;
+
+    font-weight:bold;
+
+}
+
+
+.header-icons{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+
+}
+
+
+.header-icon{
+
+    position:relative;
+
+    font-size:28px;
+
+    cursor:pointer;
+
+}
+
+
+.cart-count{
+
+    position:absolute;
+
+    top:-7px;
+
+    right:-10px;
+
+    width:20px;
+
+    height:20px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:#c99742;
+
+    color:#111;
+
+    font-size:11px;
+
+    font-weight:bold;
+
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+
+    min-height:320px;
+
+    padding:
+
+    45px 20px
+
+    40px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    background:
+
+    radial-gradient(
+
+        circle at top,
+
+        rgba(195,145,58,.15),
+
+        transparent 55%
+
+    ),
+
+    #080808;
+
+}
+
+
+.hero-content{
+
+    max-width:600px;
+
+}
+
+
+.hero-logo{
+
+    width:110px;
+
+    height:110px;
+
+    object-fit:contain;
+
+    margin-bottom:15px;
+
+}
+
+
+.hero h1{
+
+    color:#e6bd70;
+
+    font-size:30px;
+
+    margin-bottom:10px;
+
+}
+
+
+.hero p{
+
+    color:#aaa;
+
+    font-size:14px;
+
+    line-height:1.7;
+
+}
+
+
+/* =========================
+   CATEGORY SECTION
+========================= */
+
+.categories-section{
+
+    padding:
+
+    25px 18px
+
+    40px;
+
+}
+
+
+.section-title{
+
+    text-align:center;
+
+    margin-bottom:25px;
+
+}
+
+
+.section-title h2{
+
+    color:#e6bd70;
+
+    font-size:28px;
+
+    margin-bottom:10px;
+
+}
+
+
+.section-title p{
+
+    color:#9a9a9a;
+
+    font-size:14px;
+
+}
+
+
+/* =========================
+   CATEGORY GRID
+========================= */
+
+.category-grid{
+
+    display:grid;
+
+    grid-template-columns:
+
+    repeat(2,1fr);
+
+    gap:18px;
+
+    max-width:900px;
+
+    margin:auto;
+
+}
+
+
+.category-card{
+
+    position:relative;
+
+    min-height:270px;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    cursor:pointer;
+
+    background:#111;
+
+    border:
+
+    1px solid
+
+    rgba(225,181,95,.55);
+
+    transition:.3s;
+
+    text-decoration:none;
+
+}
+
+
+.category-card:active{
+
+    transform:scale(.97);
+
+}
+
+
+.category-card img{
+
+    width:100%;
+
+    height:205px;
+
+    display:block;
+
+    object-fit:cover;
+
+    background:#151515;
+
+}
+
+
+/* IMAGE NOT FOUND FALLBACK */
+
+.category-card img:not([src]){
+
+    display:none;
+
+}
+
+
+.category-info{
+
+    padding:
+
+    15px 15px
+
+    18px;
+
+    background:
+
+    linear-gradient(
+
+        to bottom,
+
+        #151515,
+
+        #090909
+
+    );
+
+}
+
+
+.category-info h3{
+
+    color:#e6bd70;
+
+    font-size:20px;
+
+    margin-bottom:7px;
+
+}
+
+
+.category-info p{
+
+    color:#bbb;
+
+    font-size:13px;
+
+}
+
+
+/* =========================
+   PRODUCTS
+========================= */
+
+.products-section{
+
+    padding:
+
+    20px 18px
+
+    45px;
+
+}
+
+
+.products{
+
+    display:grid;
+
+    grid-template-columns:
+
+    repeat(2,1fr);
+
+    gap:15px;
+
+    max-width:900px;
+
+    margin:auto;
+
+}
+
+
+.product{
+
+    background:#111;
+
+    border:
+
+    1px solid
+
+    rgba(225,181,95,.18);
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+}
+
+
+.product-image{
+
+    height:170px;
+
+    background:#151515;
+
+}
+
+
+.product-image img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+}
+
+
+.product-info{
+
+    padding:13px;
+
+}
+
+
+.product-info h3{
+
+    font-size:15px;
+
+    margin-bottom:8px;
+
+}
+
+
+.price{
+
+    color:#e6bd70;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    margin-bottom:12px;
+
+}
+
+
+.cart-btn{
+
+    width:100%;
+
+    padding:10px;
+
+    border:
+
+    1px solid
+
+    #c99742;
+
+    background:transparent;
+
+    color:#e6bd70;
+
+    border-radius:9px;
+
+    font-size:13px;
+
+    cursor:pointer;
+
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+
+    padding:
+
+    40px 20px;
+
+    text-align:center;
+
+    background:#050505;
+
+    border-top:
+
+    1px solid
+
+    rgba(225,181,95,.15);
+
+}
+
+
+.footer-logo{
+
+    width:90px;
+
+    margin-bottom:12px;
+
+}
+
+
+footer h3{
+
+    color:#e6bd70;
+
+    font-size:22px;
+
+}
+
+
+footer p{
+
+    color:#777;
+
+    margin-top:8px;
+
+    font-size:13px;
+
+}
+
+
+/* =========================
+   BOTTOM NAV
+========================= */
+
+.bottom-nav{
+
+    position:fixed;
+
+    bottom:0;
+
+    left:0;
+
+    width:100%;
+
+    height:68px;
+
+    z-index:2000;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-around;
+
+    background:
+
+    rgba(8,8,8,.98);
+
+    border-top:
+
+    1px solid
+
+    rgba(225,181,95,.2);
+
+}
+
+
+.nav-item{
+
+    text-align:center;
+
+    color:#777;
+
+    font-size:10px;
+
+    cursor:pointer;
+
+}
+
+
+.nav-icon{
+
+    font-size:22px;
+
+    margin-bottom:3px;
+
+}
+
+
+.nav-item.active{
+
+    color:#e6bd70;
+
+}
+
+
+/* =========================
+   DESKTOP
+========================= */
+
+@media(min-width:700px){
+
+    .category-grid{
+
+        grid-template-columns:
+
+        repeat(4,1fr);
+
+    }
+
+    .products{
+
+        grid-template-columns:
+
+        repeat(4,1fr);
+
+    }
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:380px){
+
+    .category-card{
+
+        min-height:230px;
+
+    }
+
+    .category-card img{
+
+        height:170px;
+
+    }
+
+    .category-info h3{
+
+        font-size:17px;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+HEADER
+========================= -->
+
+<header>
+
+    <div class="brand">
+
+        <img src="logo.png" alt="শখের কুঞ্জ">
+
+        <span>
+            শখের কুঞ্জ
+        </span>
+
+    </div>
+
+
+    <div class="header-icons">
+
+        <div
+        class="header-icon"
+        onclick="showWishlist()">
+
+            ♡
+
+        </div>
+
+
+        <div
+        class="header-icon"
+        onclick="showCart()">
+
+            🛒
+
+            <span
+            class="cart-count"
+            id="cartCount">
+
+                0
+
+            </span>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+
+<!-- =========================
+HERO
+========================= -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <img
+        class="hero-logo"
+        src="logo.png"
+        alt="শখের কুঞ্জ">
+
+        <h1>
+            তোমার শখের ঠিকানা ✨
+        </h1>
+
+        <p>
+
+            সৌন্দর্য, স্টাইল এবং ভালোবাসার
+            প্রতিটি মুহূর্তকে আরও বিশেষ করে তুলতে
+            শখের কুঞ্জ।
+
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+CATEGORY
+========================= -->
+
+<section
+class="categories-section"
+id="categories">
+
+
+    <div class="section-title">
+
+        <h2>
+            বেছে নাও তোমার পছন্দের প্রোডাক্ট
+        </h2>
+
+        <p>
+            পছন্দের ক্যাটাগরিতে ক্লিক করে কালেকশন দেখুন
+        </p>
+
+    </div>
+
+
+
+    <div class="category-grid">
+
+
+        <!-- KACHER CHURI -->
+
+        <a
+        href="#products"
+        class="category-card"
+        onclick="selectCategory('কাচের চুড়ি')">
+
+            <img
+            src="glass-bangle.jpg"
+            alt="কাচের চুড়ি"
+            onerror="this.style.display='none'">
+
+            <div class="category-info">
+
+                <h3>
+                    কাচের চুড়ি
+                </h3>
+
+                <p>
+                    কালেকশন দেখুন →
+                </p>
+
+            </div>
+
+        </a>
+
+
+
+        <!-- PENDANT -->
+
+        <a
+        href="#products"
+        class="category-card"
+        onclick="selectCategory('Pendant')">
+
+            <img
+            src="pendant.jpg"
+            alt="Pendant"
+            onerror="this.style.display='none'">
+
+            <div class="category-info">
+
+                <h3>
+                    Pendant
+                </h3>
+
+                <p>
+                    কালেকশন দেখুন →
+                </p>
+
+            </div>
+
+        </a>
+
+
+
+        <!-- MINI JHUMKA -->
+
+        <a
+        href="#products"
+        class="category-card"
+        onclick="selectCategory('Mini Jhumka')">
+
+            <img
+            src="mini-jhumka.jpg"
+            alt="Mini Jhumka"
+            onerror="this.style.display='none'">
+
+            <div class="category-info">
+
+                <h3>
+                    Mini Jhumka
+                </h3>
+
+                <p>
+                    কালেকশন দেখুন →
+                </p>
+
+            </div>
+
+        </a>
+
+
+
+        <!-- PENDANT SET -->
+
+        <a
+        href="#products"
+        class="category-card"
+        onclick="selectCategory('Pendant Set')">
+
+            <img
+            src="pendant-set.jpg"
+            alt="Pendant Set"
+            onerror="this.style.display='none'">
+
+            <div class="category-info">
+
+                <h3>
+                    Pendant Set
+                </h3>
+
+                <p>
+                    কালেকশন দেখুন →
+                </p>
+
+            </div>
+
+        </a>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+PRODUCTS
+========================= -->
+
+<section
+class="products-section"
+id="products">
+
+
+    <div class="section-title">
+
+        <h2 id="productTitle">
+            আমাদের কালেকশন
+        </h2>
+
+        <p id="productSubtitle">
+            পছন্দের প্রোডাক্ট কার্টে যোগ করুন
+        </p>
+
+    </div>
+
+
+
+    <div class="products">
+
+
+        <div class="product">
+
+            <div class="product-image">
+
+                <img
+                src="glass-bangle.jpg"
+                alt="কাচের চুড়ি">
+
+            </div>
+
+            <div class="product-info">
+
+                <h3>
+                    সুন্দর কাচের চুড়ি
+                </h3>
+
+                <div class="price">
+                    ৳299
+                </div>
+
+                <button
+                class="cart-btn"
+                onclick="addCart('কাচের চুড়ি')">
+
+                    🛒 কার্টে যোগ করুন
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="product">
+
+            <div class="product-image">
+
+                <img
+                src="pendant.jpg"
+                alt="Pendant">
+
+            </div>
+
+            <div class="product-info">
+
+                <h3>
+                    Elegant Pendant
+                </h3>
+
+                <div class="price">
+                    ৳399
+                </div>
+
+                <button
+                class="cart-btn"
+                onclick="addCart('Pendant')">
+
+                    🛒 কার্টে যোগ করুন
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="product">
+
+            <div class="product-image">
+
+                <img
+                src="mini-jhumka.jpg"
+                alt="Mini Jhumka">
+
+            </div>
+
+            <div class="product-info">
+
+                <h3>
+                    Mini Jhumka
+                </h3>
+
+                <div class="price">
+                    ৳349
+                </div>
+
+                <button
+                class="cart-btn"
+                onclick="addCart('Mini Jhumka')">
+
+                    🛒 কার্টে যোগ করুন
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="product">
+
+            <div class="product-image">
+
+                <img
+                src="pendant-set.jpg"
+                alt="Pendant Set">
+
+            </div>
+
+            <div class="product-info">
+
+                <h3>
+                    Premium Pendant Set
+                </h3>
+
+                <div class="price">
+                    ৳699
+                </div>
+
+                <button
+                class="cart-btn"
+                onclick="addCart('Pendant Set')">
+
+                    🛒 কার্টে যোগ করুন
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+FOOTER
+========================= -->
+
+<footer>
+
+    <img
+    src="logo.png"
+    class="footer-logo"
+    alt="শখের কুঞ্জ">
+
+    <h3>
+        শখের কুঞ্জ
+    </h3>
+
+    <p>
+        শখের জুয়েলারি
+    </p>
+
+    <p>
+        © 2026 Shokher Kunjo
+    </p>
+
+</footer>
+
+
+
+<!-- =========================
+BOTTOM NAV
+========================= -->
+
+<div class="bottom-nav">
+
+
+    <div
+    class="nav-item active"
+    onclick="window.scrollTo({
+    top:0,
+    behavior:'smooth'
+    })">
+
+        <div class="nav-icon">
+            ⌂
+        </div>
+
+        Home
+
+    </div>
+
+
+
+    <div
+    class="nav-item"
+    onclick="showWishlist()">
+
+        <div class="nav-icon">
+            ♡
+        </div>
+
+        Wishlist
+
+    </div>
+
+
+
+    <div
+    class="nav-item"
+    onclick="document
+    .getElementById('categories')
+    .scrollIntoView({
+    behavior:'smooth'
+    })">
+
+        <div class="nav-icon">
+            🛍️
+        </div>
+
+        Shop
+
+    </div>
+
+
+
+    <div
+    class="nav-item"
+    onclick="showCart()">
+
+        <div class="nav-icon">
+            🛒
+        </div>
+
+        Cart
+
+    </div>
+
+
+
+    <div
+    class="nav-item"
+    onclick="showMenu()">
+
+        <div class="nav-icon">
+            ☰
+        </div>
+
+        Menu
+
+    </div>
+
+
+</div>
+
+
+
+<script>
+
+
+/* =========================
+CART
+========================= */
+
+let cart = 0;
+
+
+function addCart(product){
+
+    cart++;
+
+    document
+    .getElementById("cartCount")
+    .innerText = cart;
+
+
+    alert(
+        "✨ " +
+        product +
+        " আপনার Cart-এ যোগ হয়েছে!"
+    );
+
+}
+
+
+/* =========================
+CATEGORY SELECT
+========================= */
+
+function selectCategory(category){
+
+    document
+    .getElementById("productTitle")
+    .innerText =
+    category;
+
+    document
+    .getElementById("productSubtitle")
+    .innerText =
+    category +
+    " এর কালেকশন দেখুন";
+
+}
+
+
+/* =========================
+SHOW CART
+========================= */
+
+function showCart(){
+
+    if(cart === 0){
+
+        alert(
+            "🛒 আপনার Cart এখন খালি।"
+        );
+
+    }
+
+    else{
+
+        alert(
+            "🛒 আপনার Cart-এ " +
+            cart +
+            " টি প্রোডাক্ট আছে।"
+        );
+
+    }
+
+}
+
+
+/* =========================
+WISHLIST
+========================= */
+
+function showWishlist(){
+
+    alert(
+        "♡ Wishlist ফিচারটি শীঘ্রই আসছে!"
+    );
+
+}
+
+
+/* =========================
+MENU
+========================= */
+
+function showMenu(){
+
+    alert(
+        "শখের কুঞ্জ\n\nআমাদের সাথে থাকার জন্য ধন্যবাদ 💛"
+    );
+
+}
+
+
+</script>
+
+
+</body>
+
+</html>
