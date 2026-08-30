@@ -2,548 +2,807 @@
 <html lang="bn">
 
 <head>
-    <meta charset="UTF-8">
-
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1.0">
-
-    <title>শখের কুঞ্জ | শখের জুয়েলারি</style>
-
-    <style>
-
-        /* =========================
-           RESET
-        ========================= */
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="UTF-8">
 
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: Arial, "Noto Sans Bengali", sans-serif;
-            background: #080808;
-            color: #ffffff;
-            overflow-x: hidden;
-        }
-
-
-        /* =========================
-           LOADER
-        ========================= */
-
-        .loader {
-            position: fixed;
-            inset: 0;
-            background: #050505;
-            z-index: 9999;
-
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-
-            animation: hideLoader 1s ease 2.5s forwards;
-        }
-
-        .loader img {
-            width: 140px;
-            height: 140px;
-            object-fit: contain;
-
-            animation: logoReveal 1.3s ease;
-        }
-
-        .loader h2 {
-            color: #e6bd70;
-            margin-top: 15px;
-            font-size: 24px;
-        }
-
-        .loader p {
-            color: #b89a61;
-            margin-top: 8px;
-            font-size: 13px;
-        }
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
-        @keyframes logoReveal {
-            from {
-                opacity: 0;
-                transform: scale(.6);
-            }
+<title>শখের কুঞ্জ | শখের জুয়েলারি</title>
 
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
+<style>
 
-        @keyframes hideLoader {
-            to {
-                opacity: 0;
-                visibility: hidden;
-                pointer-events: none;
-            }
-        }
+/* =========================
+   RESET
+========================= */
 
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-        /* =========================
-           HEADER
-        ========================= */
+html{
+    scroll-behavior:smooth;
+}
 
-        header {
-            position: fixed;
+body{
+    font-family:
+    Arial,
+    "Noto Sans Bengali",
+    sans-serif;
 
-            top: 0;
-            left: 0;
+    background:#080808;
+    color:#ffffff;
 
-            width: 100%;
-            height: 70px;
+    overflow-x:hidden;
 
-            z-index: 1000;
+    padding-bottom:75px;
+}
 
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
 
-            padding: 0 18px;
+/* =========================
+   HEADER
+========================= */
 
-            background: rgba(5, 5, 5, .92);
-            backdrop-filter: blur(15px);
+header{
 
-            border-bottom:
-                1px solid rgba(225, 181, 95, .15);
-        }
+    position:sticky;
 
-        .brand {
-            display: flex;
-            align-items: center;
-            gap: 10px;
+    top:0;
 
-            text-decoration: none;
-        }
+    width:100%;
 
-        .brand img {
-            width: 48px;
-            height: 48px;
-            object-fit: contain;
-        }
+    height:72px;
 
-        .brand span {
-            color: #e6bd70;
-            font-size: 18px;
-            font-weight: bold;
-        }
+    z-index:1000;
 
-        .header-icons {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
+    display:flex;
 
-        .icon {
-            position: relative;
-            font-size: 24px;
-            cursor: pointer;
-        }
+    align-items:center;
 
-        .cart-count {
-            position: absolute;
+    justify-content:space-between;
 
-            top: -8px;
-            right: -10px;
+    padding:0 18px;
 
-            width: 19px;
-            height: 19px;
+    background:
+    rgba(8,8,8,.97);
 
-            border-radius: 50%;
+    border-bottom:
+    1px solid
+    rgba(218,174,91,.18);
 
-            background: #c99742;
-            color: #080808;
+}
 
-            font-size: 10px;
-            font-weight: bold;
 
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+.brand{
 
+    display:flex;
 
-        /* =========================
-           HERO
-        ========================= */
+    align-items:center;
 
-        .hero {
-            min-height: 100vh;
+    gap:10px;
 
-            padding: 120px 20px 80px;
+}
 
-            display: flex;
-            align-items: center;
-            justify-content: center;
 
-            text-align: center;
+.brand img{
 
-            position: relative;
+    width:46px;
 
-            background:
-                radial-gradient(
-                    circle at 50% 35%,
-                    rgba(195, 145, 58, .18),
-                    transparent 42%
-                ),
-                #080808;
-        }
+    height:46px;
 
-        .hero::before {
-            content: "";
+    object-fit:contain;
 
-            position: absolute;
+}
 
-            width: 280px;
-            height: 280px;
 
-            border-radius: 50%;
+.brand span{
 
-            border:
-                1px solid rgba(225, 181, 95, .16);
+    color:#e6bd70;
 
-            animation: rotate 20s linear infinite;
-        }
+    font-size:20px;
 
-        @keyframes rotate {
-            from {
-                transform: rotate(0);
-            }
+    font-weight:bold;
 
-            to {
-                transform: rotate(360deg);
-            }
-        }
+}
 
-        .hero-content {
-            position: relative;
-            z-index: 2;
-        }
 
-        .hero-logo {
-            width: 210px;
-            max-width: 75vw;
+.header-icons{
 
-            margin-bottom: 20px;
+    display:flex;
 
-            animation: floating 4s ease-in-out infinite;
-        }
+    align-items:center;
 
-        @keyframes floating {
-            0%,100% {
-                transform: translateY(0);
-            }
+    gap:20px;
 
-            50% {
-                transform: translateY(-10px);
-            }
-        }
+}
 
-        .hero h1 {
-            color: #e6bd70;
-            font-size: 36px;
-            margin-bottom: 12px;
-        }
 
-        .hero p {
-            max-width: 430px;
-            margin: auto;
+.header-icon{
 
-            color: #d0c6b5;
+    position:relative;
 
-            line-height: 1.8;
-            font-size: 15px;
-        }
+    font-size:28px;
 
-        .shop-btn {
-            display: inline-block;
+    cursor:pointer;
 
-            margin-top: 28px;
+}
 
-            padding: 14px 32px;
 
-            border-radius: 30px;
+.cart-count{
 
-            background:
-                linear-gradient(
-                    135deg,
-                    #f4d58e,
-                    #c99742
-                );
+    position:absolute;
 
-            color: #080808;
+    top:-7px;
 
-            text-decoration: none;
-            font-weight: bold;
+    right:-10px;
 
-            transition: .3s;
-        }
+    width:20px;
 
-        .shop-btn:hover {
-            transform: translateY(-3px);
-        }
+    height:20px;
 
+    display:flex;
 
-        /* =========================
-           SECTIONS
-        ========================= */
+    align-items:center;
 
-        section {
-            padding: 65px 18px;
-        }
+    justify-content:center;
 
-        .section-title {
-            text-align: center;
-            margin-bottom: 32px;
-        }
+    border-radius:50%;
 
-        .section-title h2 {
-            color: #e6bd70;
-            font-size: 27px;
-        }
+    background:#c99742;
 
-        .section-title p {
-            color: #8f887d;
-            font-size: 13px;
-            margin-top: 10px;
-        }
+    color:#111;
 
+    font-size:11px;
 
-        /* =========================
-           CATEGORIES
-        ========================= */
+    font-weight:bold;
 
-        .categories-section {
-            background:
-                radial-gradient(
-                    circle at top,
-                    rgba(195, 145, 58, .10),
-                    transparent 50%
-                );
-        }
+}
 
-        .category-grid {
-            max-width: 1300px;
-            margin: auto;
 
-            display: grid;
+/* =========================
+   HERO
+========================= */
 
-            grid-template-columns:
-                repeat(4, 1fr);
+.hero{
 
-            gap: 18px;
-        }
+    min-height:320px;
 
-        .category-card {
-            position: relative;
+    padding:
 
-            height: 370px;
+    45px 20px
 
-            overflow: hidden;
+    40px;
 
-            border-radius: 20px;
+    display:flex;
 
-            background: #111;
+    align-items:center;
 
-            border:
-                1px solid rgba(225, 181, 95, .55);
+    justify-content:center;
 
-            cursor: pointer;
+    text-align:center;
 
-            transition: .35s;
-        }
+    background:
 
-        .category-card:hover {
-            transform: translateY(-7px);
+    radial-gradient(
 
-            box-shadow:
-                0 20px 45px rgba(0,0,0,.6);
-        }
+        circle at top,
 
-        .category-card img {
-            width: 100%;
-            height: 100%;
+        rgba(195,145,58,.15),
 
-            object-fit: cover;
+        transparent 55%
 
-            transition: .5s;
-        }
+    ),
 
-        .category-card:hover img {
-            transform: scale(1.06);
-        }
+    #080808;
 
-        .category-overlay {
-            position: absolute;
+}
 
-            bottom: 0;
-            left: 0;
 
-            width: 100%;
+.hero-content{
 
-            padding: 55px 18px 20px;
+    max-width:600px;
 
-            background:
-                linear-gradient(
-                    transparent,
-                    rgba(0,0,0,.97)
-                );
-        }
+}
 
-        .category-overlay h3 {
-            color: #e6bd70;
-            font-size: 21px;
-            margin-bottom: 8px;
-        }
 
-        .category-overlay span {
-            color: #ddd;
-            font-size: 12px;
-        }
+.hero-logo{
 
+    width:110px;
 
-        /* =========================
-           PRODUCTS
-        ========================= */
+    height:110px;
 
-        .product-grid {
-            max-width: 1300px;
-            margin: auto;
+    object-fit:contain;
 
-            display: grid;
+    margin-bottom:15px;
 
-            grid-template-columns:
-                repeat(4, 1fr);
+}
 
-            gap: 18px;
-        }
 
-        .product {
-            background: #111;
+.hero h1{
 
-            border-radius: 18px;
+    color:#e6bd70;
 
-            overflow: hidden;
+    font-size:30px;
 
-            border:
-                1px solid rgba(225, 181, 95, .16);
+    margin-bottom:10px;
 
-            transition: .3s;
-        }
+}
 
-        .product:hover {
-            transform: translateY(-5px);
-        }
 
-        .product-image {
-            height: 250px;
-            position: relative;
-            overflow: hidden;
-        }
+.hero p{
 
-        .product-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+    color:#aaa;
 
-        .badge {
-            position: absolute;
+    font-size:14px;
 
-            top: 12px;
-            left: 12px;
+    line-height:1.7;
 
-            background: #c99742;
-            color: #080808;
+}
 
-            padding: 6px 10px;
 
-            border-radius: 20px;
+/* =========================
+   CATEGORY SECTION
+========================= */
 
-            font-size: 10px;
-            font-weight: bold;
-        }
+.categories-section{
 
-        .wishlist-btn {
-            position: absolute;
+    padding:
 
-            top: 10px;
-            right: 10px;
+    25px 18px
 
-            width: 40px;
-            height: 40px;
+    40px;
 
-            border: none;
-            border-radius: 50%;
+}
 
-            background: rgba(0,0,0,.65);
 
-            color: white;
+.section-title{
 
-            font-size: 20px;
+    text-align:center;
 
-            cursor: pointer;
-        }
+    margin-bottom:25px;
 
-        .wishlist-btn.active {
-            color: #e6bd70;
-        }
+}
 
-        .product-info {
-            padding: 16px;
-        }
 
-        .product-info h3 {
-            font-size: 16px;
-            margin-bottom: 8px;
-        }
+.section-title h2{
 
-        .product-info p {
-            color: #8f887d;
-            font-size: 12px;
-            margin-bottom: 13px;
-        }
+    color:#e6bd70;
 
-        .price {
-            color: #e6bd70;
-            font-size: 19px;
-            font-weight: bold;
-        }
+    font-size:28px;
 
-        .old-price {
-            color: #777;
-            font-size: 13px;
+    margin-bottom:10px;
 
-            text-decoration: line-through;
+}
 
-            margin-left: 8px;
-        }
 
-        .cart-btn {
-            width: 100%;
+.section-title p{
 
-            margin-top: 15px;
+    color:#9a9a9a;
 
-            padding: 12px;
+    font-size:14px;
 
-            border-radius: 9px;
+}
 
-            border: 1px solid #9d783b;
 
-            background: transparent;
+/* =========================
+   CATEGORY GRID
+========================= */
 
-            color: #e6bd70;
+.category-grid{
 
-           
+    display:grid;
+
+    grid-template-columns:
+
+    repeat(2,1fr);
+
+    gap:18px;
+
+    max-width:900px;
+
+    margin:auto;
+
+}
+
+
+.category-card{
+
+    position:relative;
+
+    min-height:270px;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    cursor:pointer;
+
+    background:#111;
+
+    border:
+
+    1px solid
+
+    rgba(225,181,95,.55);
+
+    transition:.3s;
+
+    text-decoration:none;
+
+}
+
+
+.category-card:active{
+
+    transform:scale(.97);
+
+}
+
+
+.category-card img{
+
+    width:100%;
+
+    height:205px;
+
+    display:block;
+
+    object-fit:cover;
+
+    background:#151515;
+
+}
+
+
+/* IMAGE NOT FOUND FALLBACK */
+
+.category-card img:not([src]){
+
+    display:none;
+
+}
+
+
+.category-info{
+
+    padding:
+
+    15px 15px
+
+    18px;
+
+    background:
+
+    linear-gradient(
+
+        to bottom,
+
+        #151515,
+
+        #090909
+
+    );
+
+}
+
+
+.category-info h3{
+
+    color:#e6bd70;
+
+    font-size:20px;
+
+    margin-bottom:7px;
+
+}
+
+
+.category-info p{
+
+    color:#bbb;
+
+    font-size:13px;
+
+}
+
+
+/* =========================
+   PRODUCTS
+========================= */
+
+.products-section{
+
+    padding:
+
+    20px 18px
+
+    45px;
+
+}
+
+
+.products{
+
+    display:grid;
+
+    grid-template-columns:
+
+    repeat(2,1fr);
+
+    gap:15px;
+
+    max-width:900px;
+
+    margin:auto;
+
+}
+
+
+.product{
+
+    background:#111;
+
+    border:
+
+    1px solid
+
+    rgba(225,181,95,.18);
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+}
+
+
+.product-image{
+
+    height:170px;
+
+    background:#151515;
+
+}
+
+
+.product-image img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+}
+
+
+.product-info{
+
+    padding:13px;
+
+}
+
+
+.product-info h3{
+
+    font-size:15px;
+
+    margin-bottom:8px;
+
+}
+
+
+.price{
+
+    color:#e6bd70;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    margin-bottom:12px;
+
+}
+
+
+.cart-btn{
+
+    width:100%;
+
+    padding:10px;
+
+    border:
+
+    1px solid
+
+    #c99742;
+
+    background:transparent;
+
+    color:#e6bd70;
+
+    border-radius:9px;
+
+    font-size:13px;
+
+    cursor:pointer;
+
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+
+    padding:
+
+    40px 20px;
+
+    text-align:center;
+
+    background:#050505;
+
+    border-top:
+
+    1px solid
+
+    rgba(225,181,95,.15);
+
+}
+
+
+.footer-logo{
+
+    width:90px;
+
+    margin-bottom:12px;
+
+}
+
+
+footer h3{
+
+    color:#e6bd70;
+
+    font-size:22px;
+
+}
+
+
+footer p{
+
+    color:#777;
+
+    margin-top:8px;
+
+    font-size:13px;
+
+}
+
+
+/* =========================
+   BOTTOM NAV
+========================= */
+
+.bottom-nav{
+
+    position:fixed;
+
+    bottom:0;
+
+    left:0;
+
+    width:100%;
+
+    height:68px;
+
+    z-index:2000;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-around;
+
+    background:
+
+    rgba(8,8,8,.98);
+
+    border-top:
+
+    1px solid
+
+    rgba(225,181,95,.2);
+
+}
+
+
+.nav-item{
+
+    text-align:center;
+
+    color:#777;
+
+    font-size:10px;
+
+    cursor:pointer;
+
+}
+
+
+.nav-icon{
+
+    font-size:22px;
+
+    margin-bottom:3px;
+
+}
+
+
+.nav-item.active{
+
+    color:#e6bd70;
+
+}
+
+
+/* =========================
+   DESKTOP
+========================= */
+
+@media(min-width:700px){
+
+    .category-grid{
+
+        grid-template-columns:
+
+        repeat(4,1fr);
+
+    }
+
+    .products{
+
+        grid-template-columns:
+
+        repeat(4,1fr);
+
+    }
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:380px){
+
+    .category-card{
+
+        min-height:230px;
+
+    }
+
+    .category-card img{
+
+        height:170px;
+
+    }
+
+    .category-info h3{
+
+        font-size:17px;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+HEADER
+========================= -->
+
+<header>
+
+    <div class="brand">
+
+        <img src="logo.png" alt="শখের কুঞ্জ">
+
+        <span>
+            শখের কুঞ্জ
+        </span>
+
+    </div>
+
+
+    <div class="header-icons">
+
+        <div
+        class="header-icon"
+        onclick="showWishlist()">
+
+            ♡
+
+        </div>
+
+
+        <div
+        class="header-icon"
+        onclick="showCart()">
+
+            🛒
+
+            <span
+            class="cart-count"
+            id="cartCount">
+
+                0
+
+            </span>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+
+<!-- =========================
+HERO
+========================= -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <img
+        class="hero-logo"
+        src="logo.png"
+        alt="শখের কুঞ্জ">
+
+        <h1>
+            তোমার শখের ঠিকানা ✨
+        </h1>
+
+        <p>
+
+            সৌন্দর্য, স্টাইল এবং ভালোবাসার
+            প্রতিটি মুহূর্তকে আরও বিশেষ করে তুলতে
+            শখের কুঞ্জ।
+
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+CATEGORY
+========================= -->
+
+<section
+class="categories-section"
+id="categories">
+
+
+    <div class="section-title">
+
+        <h2>
+            বেছে নাও তোমার পছন্দের প্রোডাক্ট
+        </h2>
+
+        <p>
+            পছন্দের ক্যাট
