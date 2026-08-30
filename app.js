@@ -101,11 +101,11 @@ const categories = [
 
     price:500,
 
-    discount:10,
+    discount:5,
 
     image:"pendant.jpg",
 
-    stock:5
+    stock:0
 }
 
 
@@ -231,7 +231,7 @@ const products = {
             price:799,
             discount:10,
             image:"pendant-set.jpg",
-            stock:5
+            stock:0
         },
 
         {
