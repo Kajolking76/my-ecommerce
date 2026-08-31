@@ -200,11 +200,11 @@ const products = {
 
         {
             id:5,
-            name:"Mini Jhumka",
-            price:350,
+            name:"Kashmeri Jhumka🌸",
+            price:150,
             discount:0,
-            image:"mini-jhumka.jpg",
-            stock:7
+            image:"KashmeriJhumka1.jpg",
+            stock:2
         },
 
         {
