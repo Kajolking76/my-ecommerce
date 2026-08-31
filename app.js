@@ -201,8 +201,8 @@ const products = {
         {
             id:5,
             name:"Kashmeri Jhumka🌸",
-            price:150,
-            discount:0,
+            price:200,
+            discount:25,
             image:"KashmeriJhumka1.jpg",
             stock:2
         },
@@ -210,8 +210,8 @@ const products = {
         {
             id:6,
             name:"Kashmeri Blue stone😍",
-            price:180,
-            discount:15,
+            price:200,
+            discount:25,
             image:"KashmeriJhumkaBlue.jpg",
             stock:2
         },
@@ -219,8 +219,8 @@ const products = {
         {
             id:15,
             name:"Kashmeri Red stone😍",
-            price:150,
-            discount:0,
+            price:200,
+            discount:25,
             image:"KashmeriJhumkaRed.jpg",
             stock:2
         }
