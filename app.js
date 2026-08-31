@@ -145,22 +145,49 @@ const products = {
     glass:[
 
         {
-            id:1,
-            name:"প্রিমিয়াম কাচের চুড়ি",
-            price:299,
+            id:20,
+            name:"12 pcs single box (s-28)",
+            price:199,
             discount:0,
-            image:"glass-bangle.jpg",
-            stock:10
+            image:"Dadima98.jpg",
+            stock:2
         },
 
         {
-            id:2,
-            name:"স্টাইলিশ কাচের চুড়ি",
-            price:350,
-            discount:10,
-            image:"glass-bangle.jpg",
-            stock:5
-        }
+            id:21,
+            name:"Dadi ma churi (s-26)💞✨",
+            price:199,
+            discount:0,
+            image:"Dadima99.jpg",
+            stock:2
+        },
+
+        {
+            id:22,
+            name:"Dadi ma churi (s-26)💞✨",
+            price:199,
+            discount:0,
+            image:"Dadima97.jpg",
+            stock:2
+        },
+
+        {
+            id:23,
+            name:"pata bahar (s-26)💞✨",
+            price:199,
+            discount:0,
+            image:"Patabahr1.jpg",
+            stock:2
+        },
+
+        {
+            id:24,
+            name:"pata bahar (s-26)💞✨",
+            price:199,
+            discount:0,
+            image:"Patabahr2.jpg",
+            stock:2
+        },
 
     ],
 
