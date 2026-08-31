@@ -209,7 +209,7 @@ const products = {
 
         {
             id:18,
-            name:"Pendant set 💕🦋",
+            name:"Cute Pendant 💕",
             price:110,
             discount:0,
             image:"Pendant5.jpg",
@@ -218,7 +218,7 @@ const products = {
 
         {
             id:19,
-            name:"Pendant set 💕🦋",
+            name:"Cute Pendant 💕",
             price:110,
             discount:0,
             image:"Pendant6.jpg",
