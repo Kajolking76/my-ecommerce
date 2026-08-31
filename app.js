@@ -220,7 +220,7 @@ const products = {
             id:15,
             name:"Kashmeri Red stone😍",
             price:150,
-            discount:,
+            discount:0,
             image:"KashmeriJhumkaRed.jpg",
             stock:2
         }
