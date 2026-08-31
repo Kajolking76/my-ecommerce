@@ -209,11 +209,20 @@ const products = {
 
         {
             id:6,
-            name:"Golden Mini Jhumka",
-            price:450,
-            discount:10,
-            image:"mini-jhumka.jpg",
-            stock:3
+            name:"Kashmeri Blue stone😍",
+            price:180,
+            discount:15,
+            image:"KashmeriJhumkaBlue.jpg",
+            stock:2
+        },
+
+        {
+            id:15,
+            name:"Kashmeri Red stone😍",
+            price:150,
+            discount:,
+            image:"KashmeriJhumkaRed.jpg",
+            stock:2
         }
 
     ],
