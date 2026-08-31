@@ -145,7 +145,7 @@ const products = {
     glass:[
 
         {
-            id:20,
+            id:1,
             name:"12 pcs single box (s-28)",
             price:199,
             discount:0,
@@ -154,7 +154,7 @@ const products = {
         },
 
         {
-            id:21,
+            id:2,
             name:"Dadi ma churi (s-26)💞✨",
             price:199,
             discount:0,
@@ -163,7 +163,7 @@ const products = {
         },
 
         {
-            id:22,
+            id:3,
             name:"Dadi ma churi (s-26)💞✨",
             price:199,
             discount:0,
@@ -172,7 +172,7 @@ const products = {
         },
 
         {
-            id:23,
+            id:4,
             name:"pata bahar (s-26)💞✨",
             price:199,
             discount:0,
@@ -181,7 +181,7 @@ const products = {
         },
 
         {
-            id:24,
+            id:5,
             name:"pata bahar (s-26)💞✨",
             price:199,
             discount:0,
@@ -199,7 +199,7 @@ const products = {
     pendant:[
 
         {
-            id:18,
+            id:6,
             name:"Cute Pendant 💕",
             price:110,
             discount:0,
@@ -208,7 +208,7 @@ const products = {
         },
 
         {
-            id:19,
+            id:7,
             name:"Cute Pendant 💕",
             price:110,
             discount:0,
@@ -226,7 +226,7 @@ const products = {
     jhumka:[
 
         {
-            id:5,
+            id:8,
             name:"Kashmeri Jhumka🌸",
             price:200,
             discount:25,
@@ -235,7 +235,7 @@ const products = {
         },
 
         {
-            id:6,
+            id:9,
             name:"Kashmeri Blue stone😍",
             price:200,
             discount:25,
@@ -244,7 +244,7 @@ const products = {
         },
 
         {
-            id:15,
+            id:10,
             name:"Kashmeri Red stone😍",
             price:200,
             discount:25,
@@ -262,7 +262,7 @@ const products = {
     set:[
 
         {
-                id:3,
+                id:11,
             name:"Pendant set 💕🦋",
             price:110,
             discount:0,
@@ -271,7 +271,7 @@ const products = {
         },
 
         {
-            id:4,
+            id:12,
             name:"Pendant set 💕🦋",
             price:110,
             discount:0,
@@ -280,7 +280,7 @@ const products = {
         },
 
         {
-            id:16,
+            id:13,
             name:"Pendant set 💕🦋",
             price:110,
             discount:0,
@@ -289,7 +289,7 @@ const products = {
         },
 
         {
-            id:17,
+            id:14,
             name:"Pendant set 💕🦋",
             price:110,
             discount:0,
