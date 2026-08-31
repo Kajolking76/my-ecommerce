@@ -173,20 +173,56 @@ const products = {
 
         {
             id:3,
-            name:"Elegant Pendant",
-            price:399,
+            name:"Pendant set 💕🦋",
+            price:110,
             discount:0,
-            image:"pendant.jpg",
-            stock:8
+            image:"Pendant1.jpg",
+            stock:3
         },
 
         {
             id:4,
-            name:"Premium Pendant",
-            price:499,
-            discount:5,
-            image:"pendant.jpg",
-            stock:5
+            name:"Pendant set 💕🦋",
+            price:110,
+            discount:0,
+            image:"Pendant2.jpg",
+            stock:3
+        },
+
+        {
+            id:16,
+            name:"Pendant set 💕🦋",
+            price:110,
+            discount:0,
+            image:"Pendant3.jpg",
+            stock:3
+        },
+
+        {
+            id:17,
+            name:"Pendant set 💕🦋",
+            price:110,
+            discount:0,
+            image:"Pendant4.jpg",
+            stock:3
+        },
+
+        {
+            id:18,
+            name:"Pendant set 💕🦋",
+            price:110,
+            discount:0,
+            image:"Pendant5.jpg",
+            stock:2
+        },
+
+        {
+            id:19,
+            name:"Pendant set 💕🦋",
+            price:110,
+            discount:0,
+            image:"Pendant6.jpg",
+            stock:2
         }
 
     ],
