@@ -1868,20 +1868,6 @@ function confirmOrder() {
 
 
         /* =========================
-           CLEAR CART
-        ========================= */
-
-        cart = [];
-
-        saveCart();
-
-        updateCartCount();
-
-        appliedCoupon =
-            null;
-
-
-        /* =========================
            HOME
         ========================= */
 
