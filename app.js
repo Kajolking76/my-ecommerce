@@ -1624,11 +1624,13 @@ Google Sheet
 Google Sheet-এ Save হবে।
 
 ========================================================= */
+
+            
 function confirmOrder() {
 
-    // =========================================
-    // CUSTOMER INFORMATION
-    // =========================================
+    /* =========================
+       CUSTOMER INFORMATION
+    ========================= */
 
     const name =
         document
@@ -1636,13 +1638,11 @@ function confirmOrder() {
             .value
             .trim();
 
-
     const phone =
         document
             .getElementById("customerPhone")
             .value
             .trim();
-
 
     const address =
         document
@@ -1650,13 +1650,11 @@ function confirmOrder() {
             .value
             .trim();
 
-
     const district =
         document
             .getElementById("customerDistrict")
             .value
             .trim();
-
 
     const division =
         document
@@ -1665,9 +1663,9 @@ function confirmOrder() {
             .trim();
 
 
-    // =========================================
-    // REQUIRED FIELD CHECK
-    // =========================================
+    /* =========================
+       VALIDATION
+    ========================= */
 
     if (
         !name ||
@@ -1682,21 +1680,16 @@ function confirmOrder() {
         );
 
         return;
-
     }
 
 
-    // =========================================
-    // CART SUBTOTAL
-    // =========================================
+    /* =========================
+       CALCULATE ORDER
+    ========================= */
 
     const subtotal =
         getCartSubtotal();
 
-
-    // =========================================
-    // DISCOUNT
-    // =========================================
 
     const discount =
         appliedCoupon
@@ -1706,70 +1699,94 @@ function confirmOrder() {
             : 0;
 
 
-    // =========================================
-    // TOTAL
-    // =========================================
-
     const total =
         subtotal -
         discount +
         DELIVERY_CHARGE;
 
 
-    // =========================================
-    // ORDER ID
-    // =========================================
+    /* =========================
+       ORDER ID
+    ========================= */
 
     const orderId =
         "SK-" + Date.now();
 
 
-    // =========================================
-    // ORDER OBJECT
-    // =========================================
+    /* =========================
+       CREATE ORDER
+    ========================= */
 
     const order = {
 
-        orderId: orderId,
+        orderId:
+            orderId,
 
         date:
             new Date().toLocaleString(),
 
         customer: {
 
-            name: name,
+            name:
+                name,
 
-            phone: phone,
+            phone:
+                phone,
 
-            address: address,
+            address:
+                address,
 
-            district: district,
+            district:
+                district,
 
-            division: division
+            division:
+                division
 
         },
 
-        products: cart.map(item => {
 
-    const product = findProduct(item.id);
+        products:
 
-    return {
-        id: item.id,
-        name: product ? product.name : "Unknown Product",
-        quantity: item.quantity,
-        price: product ? getProductPrice(product) : 0
-    };
+            cart.map(function(item) {
 
-}),
+                const product =
+                    findProduct(item.id);
 
-        subtotal: subtotal,
 
-        discount: discount,
+                return {
+
+                    id:
+                        item.id,
+
+                    name:
+                        product
+                            ? product.name
+                            : "Unknown Product",
+
+                    quantity:
+                        item.quantity,
+
+                    price:
+                        product
+                            ? getProductPrice(product)
+                            : 0
+
+                };
+
+            }),
+
+
+        subtotal:
+            subtotal,
+
+        discount:
+            discount,
 
         deliveryCharge:
             DELIVERY_CHARGE,
 
-        total: total,
+        total:
+            total,
 
         coupon:
             appliedCoupon ||
@@ -1781,46 +1798,97 @@ function confirmOrder() {
     };
 
 
-    // =========================================
-    // GOOGLE APPS SCRIPT URL
-    // =========================================
+    /* =========================
+       NEW GOOGLE APPS SCRIPT URL
+    ========================= */
 
     const GOOGLE_SCRIPT_URL =
-        "https://script.google.com/macros/s/AKfycbyM0FVhD29apHfAfSU8O6gZSE5p3hKSqWzCnuqEtkfBeLkfjj7jwvQ8kOXbbhEJDCp5/exec";
+        "https://script.google.com/macros/s/AKfycbwPikoVOzijyDxz7nWZTUukKAbsB8Iny9Q1E5k7jKWpQWV1DgPfSDTnOeBfVegpapI-/exec";
 
 
-    // =========================================
-    // SEND ORDER TO GOOGLE SHEET
-    // =========================================
+    /* =========================
+       CREATE FORM DATA
+    ========================= */
+
+    const payload =
+        new URLSearchParams();
+
+    payload.append(
+        "payload",
+        JSON.stringify(order)
+    );
+
+
+    /* =========================
+       SEND TO GOOGLE SHEETS
+    ========================= */
 
     fetch(
         GOOGLE_SCRIPT_URL,
         {
 
-            method: "POST",
+            method:
+                "POST",
 
-            mode: "no-cors",
-
-            headers: {
-
-                "Content-Type":
-                    "text/plain;charset=utf-8"
-
-            },
+            mode:
+                "no-cors",
 
             body:
-                JSON.stringify(order)
+                payload,
+
+            keepalive:
+                true
 
         }
     )
+
     .then(function() {
 
         console.log(
-            "Order sent to Google Sheet:",
+            "Shokher Kunjo order sent:",
             order
         );
 
+
+        /* =========================
+           SUCCESS MESSAGE
+        ========================= */
+
+        alert(
+
+            "🎉 অর্ডার সফলভাবে কনফার্ম হয়েছে!" +
+
+            "\n\nOrder ID: " +
+            orderId +
+
+            "\n\nসর্বমোট: ৳" +
+            total.toFixed(0)
+
+        );
+
+
+        /* =========================
+           CLEAR CART
+        ========================= */
+
+        cart = [];
+
+        saveCart();
+
+        updateCartCount();
+
+        appliedCoupon =
+            null;
+
+
+        /* =========================
+           HOME
+        ========================= */
+
+        goHome();
+
     })
+
     .catch(function(error) {
 
         console.error(
@@ -1828,25 +1896,16 @@ function confirmOrder() {
             error
         );
 
+
+        alert(
+            "❌ অর্ডার পাঠানো যায়নি।\n\n" +
+            "দয়া করে আবার চেষ্টা করুন।"
+        );
+
     });
 
-
-    // =========================================
-    // CUSTOMER SUCCESS MESSAGE
-    // =========================================
-
-    alert(
-
-        "🎉 অর্ডার সফলভাবে কনফার্ম হয়েছে!\n\n" +
-
-        "Order ID: " +
-        orderId +
-
-        "\n\nসর্বমোট: ৳" +
-        total.toFixed(0)
-
-    );
-
+}
+         
 
     // =========================================
     // CLEAR CART
