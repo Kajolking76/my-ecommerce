@@ -1625,6 +1625,15 @@ function confirmOrder(){
 
     console.log(order);
 
+    fetch("https://script.google.com/macros/s/AKfycbzqUg6wXZ8qY4QtIZ8GRCLWxDr3MuVNQ6tzxUv5wZ0EJv5Ux5pRprHnjxI3-DzmA5OrUw/exec", {
+    method: "POST",
+    mode: "no-cors",
+    headers: {
+        "Content-Type": "text/plain;charset=utf-8"
+    },
+    body: JSON.stringify(order)
+});
+
 
     alert(
 
