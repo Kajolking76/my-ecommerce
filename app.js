@@ -1613,7 +1613,18 @@ function confirmOrder() {
 
         },
 
-        products: cart,
+        products: cart.map(item => {
+
+    const product = findProduct(item.id);
+
+    return {
+        id: item.id,
+        name: product ? product.name : "Unknown Product",
+        quantity: item.quantity,
+        price: product ? getProductPrice(product) : 0
+    };
+
+}),
 
         subtotal: subtotal,
 
