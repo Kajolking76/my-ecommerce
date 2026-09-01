@@ -1613,7 +1613,7 @@ function confirmOrder(){
 
     };
 
-    fetch("https://script.google.com/macros/s/AKfycbzqUg6wXZ8qY4QtIZ8GRCLWxDr3MuVNQ6tzxUv5wZ0EJv5Ux5pRprHnjxI3-DzmA5OrUw/exec", {
+    fetch("https://script.google.com/macros/s/AKfycbyNXeKR7t3p5nY_ikii_oHZqR3924J6qiWLKUCAF0kywFtiubkJsBrYghwyG2AtD64DRg/exec", {
     method: "POST",
     mode: "no-cors",
     headers: {
@@ -1623,9 +1623,7 @@ function confirmOrder(){
 });
 
 
-    console.log(order);
-
-    fetch("https://script.google.com/macros/s/AKfycbzqUg6wXZ8qY4QtIZ8GRCLWxDr3MuVNQ6tzxUv5wZ0EJv5Ux5pRprHnjxI3-DzmA5OrUw/exec", {
+    fetch("https://script.google.com/macros/s/AKfycbyNXeKR7t3p5nY_ikii_oHZqR3924J6qiWLKUCAF0kywFtiubkJsBrYghwyG2AtD64DRg/exec", {
     method: "POST",
     mode: "no-cors",
     headers: {
