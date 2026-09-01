@@ -1488,46 +1488,58 @@ Google Sheet
 Google Sheet-এ Save হবে।
 
 ========================================================= */
+function confirmOrder() {
 
-function confirmOrder(){
+    // =========================================
+    // CUSTOMER INFORMATION
+    // =========================================
 
     const name =
-    document.getElementById(
-        "customerName"
-    ).value.trim();
+        document
+            .getElementById("customerName")
+            .value
+            .trim();
 
 
     const phone =
-    document.getElementById(
-        "customerPhone"
-    ).value.trim();
+        document
+            .getElementById("customerPhone")
+            .value
+            .trim();
 
 
     const address =
-    document.getElementById(
-        "customerAddress"
-    ).value.trim();
+        document
+            .getElementById("customerAddress")
+            .value
+            .trim();
 
 
     const district =
-    document.getElementById(
-        "customerDistrict"
-    ).value.trim();
+        document
+            .getElementById("customerDistrict")
+            .value
+            .trim();
 
 
     const division =
-    document.getElementById(
-        "customerDivision"
-    ).value.trim();
+        document
+            .getElementById("customerDivision")
+            .value
+            .trim();
 
 
-    if(
+    // =========================================
+    // REQUIRED FIELD CHECK
+    // =========================================
+
+    if (
         !name ||
         !phone ||
         !address ||
         !district ||
         !division
-    ){
+    ) {
 
         alert(
             "⚠️ দয়া করে সব প্রয়োজনীয় তথ্য পূরণ করুন।"
@@ -1538,125 +1550,160 @@ function confirmOrder(){
     }
 
 
-    const subtotal =
-    getCartSubtotal();
+    // =========================================
+    // CART SUBTOTAL
+    // =========================================
 
+    const subtotal =
+        getCartSubtotal();
+
+
+    // =========================================
+    // DISCOUNT
+    // =========================================
 
     const discount =
-    appliedCoupon
+        appliedCoupon
+            ? subtotal *
+              COUPON_DISCOUNT_PERCENT /
+              100
+            : 0;
 
-    ?
 
-    subtotal *
-    COUPON_DISCOUNT_PERCENT /
-    100
-
-    :
-
-    0;
-
+    // =========================================
+    // TOTAL
+    // =========================================
 
     const total =
+        subtotal -
+        discount +
+        DELIVERY_CHARGE;
 
-    subtotal
 
-    -
-
-    discount
-
-    +
-
-    DELIVERY_CHARGE;
-
+    // =========================================
+    // ORDER ID
+    // =========================================
 
     const orderId =
+        "SK-" + Date.now();
 
-    "SK-" +
 
-    Date.now();
-
+    // =========================================
+    // ORDER OBJECT
+    // =========================================
 
     const order = {
 
-        orderId,
+        orderId: orderId,
 
         date:
-        new Date().toLocaleString(),
+            new Date().toLocaleString(),
 
-        customer:{
-            name,
-            phone,
-            address,
-            district,
-            division
+        customer: {
+
+            name: name,
+
+            phone: phone,
+
+            address: address,
+
+            district: district,
+
+            division: division
+
         },
 
-        products:
-        cart,
+        products: cart,
 
-        subtotal,
+        subtotal: subtotal,
 
-        discount,
+        discount: discount,
 
         deliveryCharge:
-        DELIVERY_CHARGE,
+            DELIVERY_CHARGE,
 
-        total,
+        total: total,
 
         coupon:
-        appliedCoupon ||
-
-        "No Coupon",
+            appliedCoupon ||
+            "No Coupon",
 
         status:
-        "Pending"
+            "Pending"
 
     };
 
-    fetch("https://script.google.com/macros/s/AKfycbyNXeKR7t3p5nY_ikii_oHZqR3924J6qiWLKUCAF0kywFtiubkJsBrYghwyG2AtD64DRg/exec", {
-    method: "POST",
-    mode: "no-cors",
-    headers: {
-        "Content-Type": "text/plain;charset=utf-8"
-    },
-    body: JSON.stringify(order)
-});
+
+    // =========================================
+    // GOOGLE APPS SCRIPT URL
+    // =========================================
+
+    const GOOGLE_SCRIPT_URL =
+        "https://script.google.com/macros/s/AKfycbzb7E1uMQBx4z9DBtkFI8aJ1WBdvgqHRVbnCfJhgjJn6zTaAvMP7hywqMFyWY1L-bc0/exec";
 
 
-    fetch("https://script.google.com/macros/s/AKfycbyNXeKR7t3p5nY_ikii_oHZqR3924J6qiWLKUCAF0kywFtiubkJsBrYghwyG2AtD64DRg/exec", {
-    method: "POST",
-    mode: "no-cors",
-    headers: {
-        "Content-Type": "text/plain;charset=utf-8"
-    },
-    body: JSON.stringify(order)
-});
+    // =========================================
+    // SEND ORDER TO GOOGLE SHEET
+    // =========================================
 
+    fetch(
+        GOOGLE_SCRIPT_URL,
+        {
+
+            method: "POST",
+
+            mode: "no-cors",
+
+            headers: {
+
+                "Content-Type":
+                    "text/plain;charset=utf-8"
+
+            },
+
+            body:
+                JSON.stringify(order)
+
+        }
+    )
+    .then(function() {
+
+        console.log(
+            "Order sent to Google Sheet:",
+            order
+        );
+
+    })
+    .catch(function(error) {
+
+        console.error(
+            "Google Sheet Error:",
+            error
+        );
+
+    });
+
+
+    // =========================================
+    // CUSTOMER SUCCESS MESSAGE
+    // =========================================
 
     alert(
 
         "🎉 অর্ডার সফলভাবে কনফার্ম হয়েছে!\n\n" +
 
         "Order ID: " +
-
         orderId +
 
         "\n\nসর্বমোট: ৳" +
-
         total.toFixed(0)
 
     );
 
 
-    /* ========================================
-    Coupon Used
-
-    ⚠️ এই অংশ শুধু Browser-এর জন্য।
-
-    Real One-Time Coupon-এর জন্য
-    Google Sheet / Backend ব্যবহার করবো।
-    ======================================== */
-
+    // =========================================
+    // CLEAR CART
+    // =========================================
 
     cart = [];
 
@@ -1669,8 +1716,6 @@ function confirmOrder(){
     goHome();
 
 }
-
-
 
 /* =========================================================
 👤 SECTION 19: CUSTOMER ACCOUNT
