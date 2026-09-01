@@ -359,6 +359,33 @@ const products = {
             discount:25,
             image:"KashmeriJhumkaRed.jpg",
             stock:2
+        },
+
+        {
+            id:1122,
+            name:"Silver Mini Jhumka😍",
+            price:50,
+            discount:0,
+            image:"minijhumkasilver3.jpg",
+            stock:0
+        },
+
+        {
+            id:1120,
+            name:"Silver Mini Jhumka😍",
+            price:50,
+            discount:0,
+            image:"minijhumkasilver1.jpg",
+            stock:0
+        },
+
+        {
+            id:1121,
+            name:"Silver Mini Jhumka😍",
+            price:50,
+            discount:0,
+            image:"minijhumkasilver2.jpg",
+            stock:0
         }
 
     ],
