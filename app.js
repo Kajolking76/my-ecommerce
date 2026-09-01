@@ -188,6 +188,24 @@ const products = {
             image:"Patabahr2.jpg",
             stock:2
         },
+        
+        {
+            id: 1115,
+            name:"Kashmeri Raindrop🍁(S-24)",
+            price:199,
+            discount:0,
+            image:"Raindrop1.jpg",
+            stock:2
+        },
+
+        {
+            id: 1116,
+            name:"Pata Bahar🍁 (S- 24)",
+            price:199,
+            discount:0,
+            image:"patabaharrainbow1.jpg",
+            stock:2
+        },
 
     ],
 
