@@ -234,6 +234,70 @@ const products = {
             stock:2
         },
 
+        {
+            id: 1120,
+            name:"Pata Bahar 🍁 ( S- 24)",
+            price:199,
+            discount:0,
+            image:"patabaharbeguni.jpg",
+            stock:2
+        },
+
+        {
+            id: 1121,
+            name:"Pata Bahar🍁 ( S-24)",
+            price:199,
+            discount:0,
+            image:"Patabaharblue.jpg",
+            stock:2
+        },
+
+        {
+            id: 1122,
+            name:"Rain Drop🌸 ( S-24)",
+            price:199,
+            discount:0,
+            image:"Raindropgolapi.jpg",
+            stock:2
+        },
+
+        {
+            id: 1123,
+            name:"Rain Drop🌸 (S -24)",
+            price:199,
+            discount:0,
+            image:"Raindroprainbow.jpg",
+            stock:1
+        },
+
+        {
+            id: 1124,
+            name:"Kashmeri Mukto😍 ( S- 26)",
+            price:199,
+            discount:0,
+            image:"Muktoseagreen.jpg",
+            stock:1
+        },
+
+        {
+            id: 1125,
+            name:"Kashmeri Mukto❤️ (S- 24)",
+            price:199,
+            discount:0,
+            image:"MuktoLal.jpg",
+            stock:1
+        },
+
+        {
+            id: 1126,
+            name:"Kashmeri Mukto💙 (S-24)",
+            price:199,
+            discount:0,
+            image:"Muktoblue.jpg",
+            stock:2
+        },
+
+
     ],
 
 
