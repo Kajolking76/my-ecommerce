@@ -207,6 +207,33 @@ const products = {
             stock:2
         },
 
+        {
+            id: 1117,
+            name:"Dadima Curi💜 ( S- 24)",
+            price:199,
+            discount:0,
+            image:"Dadimaholud.jpg",
+            stock:2
+        },
+
+        {
+            id: 1118,
+            name:"Dadima Curi💜 ( S- 26)",
+            price:199,
+            discount:0,
+            image:"Dadimamerun.jpg",
+            stock:2
+        },
+
+        {
+            id: 1119,
+            name:"Dadima Curi💜 ( S- 24)",
+            price:199,
+            discount:0,
+            image:"Dadimagreen.jpg",
+            stock:2
+        },
+
     ],
 
 
