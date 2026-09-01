@@ -1650,7 +1650,7 @@ function confirmOrder() {
     // =========================================
 
     const GOOGLE_SCRIPT_URL =
-        "https://script.google.com/macros/s/AKfycbzb7E1uMQBx4z9DBtkFI8aJ1WBdvgqHRVbnCfJhgjJn6zTaAvMP7hywqMFyWY1L-bc0/exec";
+        "https://script.google.com/macros/s/AKfycbyM0FVhD29apHfAfSU8O6gZSE5p3hKSqWzCnuqEtkfBeLkfjj7jwvQ8kOXbbhEJDCp5/exec";
 
 
     // =========================================
