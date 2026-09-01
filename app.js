@@ -1623,9 +1623,10 @@ Google Sheet
 
 Google Sheet-এ Save হবে।
 
+/* =========================================================
+📦 SECTION 18: CONFIRM ORDER
 ========================================================= */
 
-            
 function confirmOrder() {
 
     /* =========================
@@ -1684,7 +1685,21 @@ function confirmOrder() {
 
 
     /* =========================
-       CALCULATE ORDER
+       CHECK CART
+    ========================= */
+
+    if (!cart || !cart.length) {
+
+        alert(
+            "🛒 আপনার Cart খালি!"
+        );
+
+        return;
+    }
+
+
+    /* =========================
+       CALCULATE TOTAL
     ========================= */
 
     const subtotal =
@@ -1714,7 +1729,7 @@ function confirmOrder() {
 
 
     /* =========================
-       CREATE ORDER
+       CREATE ORDER DATA
     ========================= */
 
     const order = {
@@ -1799,7 +1814,8 @@ function confirmOrder() {
 
 
     /* =========================
-       NEW GOOGLE APPS SCRIPT URL
+       GOOGLE APPS SCRIPT
+       NEW URL
     ========================= */
 
     const GOOGLE_SCRIPT_URL =
@@ -1807,7 +1823,7 @@ function confirmOrder() {
 
 
     /* =========================
-       CREATE FORM DATA
+       PREPARE PAYLOAD
     ========================= */
 
     const payload =
@@ -1820,7 +1836,7 @@ function confirmOrder() {
 
 
     /* =========================
-       SEND TO GOOGLE SHEETS
+       SEND ORDER
     ========================= */
 
     fetch(
@@ -1868,12 +1884,26 @@ function confirmOrder() {
 
 
         /* =========================
-           HOME
+           CLEAR CART
+        ========================= */
+
+        cart = [];
+
+        saveCart();
+
+        updateCartCount();
+
+        appliedCoupon = null;
+
+
+        /* =========================
+           GO HOME
         ========================= */
 
         goHome();
 
     })
+
 
     .catch(function(error) {
 
@@ -1891,23 +1921,12 @@ function confirmOrder() {
     });
 
 }
-         
 
-    // =========================================
-    // CLEAR CART
-    // =========================================
 
-    cart = [];
+/* =========================================================
+👤 SECTION 19: CUSTOMER ACCOUNT
+========================================================= */
 
-    saveCart();
-
-    updateCartCount();
-
-    appliedCoupon = null;
-
-    goHome();
-
-}
 
 /* =========================================================
 👤 SECTION 19: CUSTOMER ACCOUNT
