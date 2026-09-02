@@ -362,7 +362,7 @@ const products = {
         },
 
         {
-            id:1122,
+            id:122,
             name:"Silver Mini Jhumka😍",
             price:50,
             discount:0,
@@ -371,7 +371,7 @@ const products = {
         },
 
         {
-            id:1120,
+            id:1220,
             name:"Silver Mini Jhumka😍",
             price:50,
             discount:0,
@@ -380,7 +380,7 @@ const products = {
         },
 
         {
-            id:1121,
+            id:1221,
             name:"Silver Mini Jhumka😍",
             price:50,
             discount:0,
@@ -579,8 +579,6 @@ function getProductPrice(product){
 
 }
 
-/* =========================================================
-🖼️ PRODUCT IMAGE ZOOM
 
 /* =========================================================
 🖼️ MOBILE FRIENDLY PRODUCT IMAGE VIEWER
