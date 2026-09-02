@@ -2101,66 +2101,103 @@ function showLogin(){
 
 }
 
-
-
 /* =========================================================
 📄 SECTION 20: PAGE NAVIGATION
+📱 PHONE BACK BUTTON SUPPORT
 ========================================================= */
 
-let pageHistory = [];
+let currentPage = "homePage";
 
-function showPage(pageId){
 
-    if (pageHistory[pageHistory.length - 1] !== pageId) {
-        pageHistory.push(pageId);
+function showPage(pageId, addHistory = true){
+
+    const current =
+        document.querySelector(".page:not(.hidden)");
+
+    if(current && current.id === pageId){
+        return;
     }
+
 
     document.querySelectorAll(".page").forEach(page => {
         page.classList.add("hidden");
     });
 
-    document.getElementById(pageId).classList.remove("hidden");
 
-    window.scrollTo({top:0, behavior:"smooth"});
+    const nextPage =
+        document.getElementById(pageId);
+
+
+    if(!nextPage){
+        return;
+    }
+
+
+    nextPage.classList.remove("hidden");
+
+    currentPage = pageId;
+
+
+    /*
+    Browser history-তে নতুন page যোগ করা
+    */
+
+    if(addHistory){
+
+        history.pushState(
+            { page: pageId },
+            "",
+            "#" + pageId
+        );
+
+    }
+
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
 }
+
+
+/* =========================================================
+📱 PHONE BACK BUTTON
+========================================================= */
+
+window.addEventListener("popstate", function(event){
+
+    let previousPage = "homePage";
+
+
+    if(
+        event.state &&
+        event.state.page
+    ){
+
+        previousPage =
+            event.state.page;
+
+    }
+
+
+    showPage(
+        previousPage,
+        false
+    );
+
+});
 
 
 /* =========================================================
 🏠 GO HOME
 ========================================================= */
 
-window.addEventListener("popstate", function () {
-
-    if (pageHistory.length > 1) {
-
-        pageHistory.pop();
-
-        const previousPage =
-            pageHistory[pageHistory.length - 1];
-
-        document.querySelectorAll(".page").forEach(page => {
-            page.classList.add("hidden");
-        });
-
-        document
-            .getElementById(previousPage)
-            .classList.remove("hidden");
-
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
-
-    }
-
-});
-
 function goHome(){
 
     showPage("homePage");
 
 }
-
 
 
 /* =========================================================
