@@ -2094,35 +2094,16 @@ function showLogin(){
 ========================================================= */
 
 function showPage(pageId){
-
-    document
-    .querySelectorAll(".page")
-    .forEach(page => {
-
-        page.classList.add(
-            "hidden"
-        );
-
+    document.querySelectorAll(".page").forEach(page => {
+        page.classList.add("hidden");
     });
 
+    document.getElementById(pageId).classList.remove("hidden");
 
-    document.getElementById(
-        pageId
-    ).classList.remove(
-        "hidden"
-    );
+    history.pushState({ page: pageId }, "", "#" + pageId);
 
-
-    window.scrollTo({
-
-        top:0,
-
-        behavior:"smooth"
-
-    });
-
+    window.scrollTo({top:0, behavior:"smooth"});
 }
-
 
 
 /* =========================================================
