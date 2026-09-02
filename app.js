@@ -581,83 +581,82 @@ function getProductPrice(product){
 
 /* =========================================================
 🖼️ PRODUCT IMAGE ZOOM
+
+/* =========================================================
+🖼️ MOBILE FRIENDLY PRODUCT IMAGE VIEWER
 ========================================================= */
 
-function openImageViewer(image, name){
+function openImageViewer(image, name) {
 
-    let viewer =
-        document.getElementById("imageViewer");
+    let viewer = document.getElementById("imageViewer");
 
-
-    if(!viewer){
+    if (!viewer) {
 
         viewer = document.createElement("div");
-
         viewer.id = "imageViewer";
 
-
         viewer.innerHTML = `
-
             <button
                 class="image-viewer-close"
-                onclick="closeImageViewer()"
-            >
-                ✕
-            </button>
-
+                type="button"
+                aria-label="Close"
+            >✕</button>
 
             <img
                 id="imageViewerImg"
                 src=""
                 alt=""
             >
-
         `;
-
 
         document.body.appendChild(viewer);
 
+        const closeBtn =
+            viewer.querySelector(".image-viewer-close");
+
+        closeBtn.addEventListener("click", function(e) {
+            e.stopPropagation();
+            closeImageViewer();
+        });
+
+        viewer.addEventListener("click", function(e) {
+
+            if (e.target === viewer) {
+                closeImageViewer();
+            }
+
+        });
     }
 
+    const viewerImg =
+        document.getElementById("imageViewerImg");
 
-    document.getElementById(
-        "imageViewerImg"
-    ).src = image;
-
-
-    document.getElementById(
-        "imageViewerImg"
-    ).alt = name;
-
+    viewerImg.src = image;
+    viewerImg.alt = name || "Product image";
 
     viewer.classList.add("active");
 
+    document.body.style.overflow = "hidden";
 }
-
 
 
 /* =========================================================
 ❌ CLOSE IMAGE VIEWER
 ========================================================= */
 
-function closeImageViewer(){
+function closeImageViewer() {
 
     const viewer =
         document.getElementById("imageViewer");
 
-
-    if(!viewer){
-
+    if (!viewer) {
         return;
-
     }
-
 
     viewer.classList.remove("active");
 
+    document.body.style.overflow = "";
 }
-
-
 /* =========================================================
 🏠 SECTION 8: HOME CATEGORY RENDER
 ========================================================= */
@@ -792,10 +791,11 @@ function productCard(product){
 
 
                 <img
-    src="${product.image}"
-    alt="${product.name}"
-    onclick="openImageViewer('${product.image}', '${product.name}')"
-    style="cursor: zoom-in;"
+       src="${product.image}"
+      alt="${product.name}"
+    class="product-image-zoom"
+     data-image="${product.image}"
+     data-name="${product.name}"
 >
 
 
