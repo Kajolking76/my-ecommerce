@@ -950,6 +950,22 @@ function productCard(product){
 
 }
 
+document.addEventListener("click", function(e) {
+
+    const image =
+        e.target.closest(".product-image-zoom");
+
+    if (!image) {
+        return;
+    }
+
+    openImageViewer(
+        image.dataset.image,
+        image.dataset.name
+    );
+
+});
+
 
 
 /* =========================================================
