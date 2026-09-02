@@ -1247,5 +1247,42 @@ footer p{
         1fr 1fr;
 
     }
+    /* 🖼️ Product Image Viewer */
+
+#imageViewer {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 99999;
+    padding: 20px;
+}
+
+#imageViewer.active {
+    display: flex;
+}
+
+#imageViewer img {
+    max-width: 90%;
+    max-height: 85vh;
+    object-fit: contain;
+    border-radius: 12px;
+}
+
+.image-viewer-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 45px;
+    height: 45px;
+    border: none;
+    border-radius: 50%;
+    background: white;
+    color: black;
+    font-size: 24px;
+    cursor: pointer;
+}
 
 }
