@@ -2099,9 +2099,7 @@ function showPage(pageId){
     });
 
     document.getElementById(pageId).classList.remove("hidden");
-
-    history.pushState({ page: pageId }, "", "#" + pageId);
-
+  
     window.scrollTo({top:0, behavior:"smooth"});
 }
 
