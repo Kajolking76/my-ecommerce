@@ -579,6 +579,83 @@ function getProductPrice(product){
 
 }
 
+/* =========================================================
+🖼️ PRODUCT IMAGE ZOOM
+========================================================= */
+
+function openImageViewer(image, name){
+
+    let viewer =
+        document.getElementById("imageViewer");
+
+
+    if(!viewer){
+
+        viewer = document.createElement("div");
+
+        viewer.id = "imageViewer";
+
+
+        viewer.innerHTML = `
+
+            <button
+                class="image-viewer-close"
+                onclick="closeImageViewer()"
+            >
+                ✕
+            </button>
+
+
+            <img
+                id="imageViewerImg"
+                src=""
+                alt=""
+            >
+
+        `;
+
+
+        document.body.appendChild(viewer);
+
+    }
+
+
+    document.getElementById(
+        "imageViewerImg"
+    ).src = image;
+
+
+    document.getElementById(
+        "imageViewerImg"
+    ).alt = name;
+
+
+    viewer.classList.add("active");
+
+}
+
+
+
+/* =========================================================
+❌ CLOSE IMAGE VIEWER
+========================================================= */
+
+function closeImageViewer(){
+
+    const viewer =
+        document.getElementById("imageViewer");
+
+
+    if(!viewer){
+
+        return;
+
+    }
+
+
+    viewer.classList.remove("active");
+
+}
 
 
 /* =========================================================
@@ -715,9 +792,11 @@ function productCard(product){
 
 
                 <img
-                    src="${product.image}"
-                    alt="${product.name}"
-                >
+    src="${product.image}"
+    alt="${product.name}"
+    onclick="openImageViewer('${product.image}', '${product.name}')"
+    style="cursor: zoom-in;"
+>
 
 
                 ${
