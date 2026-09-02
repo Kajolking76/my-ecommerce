@@ -2093,13 +2093,20 @@ function showLogin(){
 📄 SECTION 20: PAGE NAVIGATION
 ========================================================= */
 
+let pageHistory = [];
+
 function showPage(pageId){
+
+    if (pageHistory[pageHistory.length - 1] !== pageId) {
+        pageHistory.push(pageId);
+    }
+
     document.querySelectorAll(".page").forEach(page => {
         page.classList.add("hidden");
     });
 
     document.getElementById(pageId).classList.remove("hidden");
-  
+
     window.scrollTo({top:0, behavior:"smooth"});
 }
 
@@ -2107,6 +2114,32 @@ function showPage(pageId){
 /* =========================================================
 🏠 GO HOME
 ========================================================= */
+
+window.addEventListener("popstate", function () {
+
+    if (pageHistory.length > 1) {
+
+        pageHistory.pop();
+
+        const previousPage =
+            pageHistory[pageHistory.length - 1];
+
+        document.querySelectorAll(".page").forEach(page => {
+            page.classList.add("hidden");
+        });
+
+        document
+            .getElementById(previousPage)
+            .classList.remove("hidden");
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+    }
+
+});
 
 function goHome(){
 
