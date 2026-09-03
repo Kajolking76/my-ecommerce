@@ -933,3 +933,45 @@ body {
     cursor: pointer;
     margin-right: 3px;
 }
+
+/* =====================================================
+   PRODUCT IMAGE PREVIEW
+===================================================== */
+
+.product-image-preview {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+    gap: 10px;
+    margin-top: 12px;
+}
+
+.product-image-preview-item {
+    position: relative;
+    height: 90px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #f8f8f8;
+}
+
+.product-image-preview-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.product-image-main {
+    border: 2px solid #111827;
+}
+
+.product-image-main::after {
+    content: "MAIN";
+    position: absolute;
+    left: 5px;
+    bottom: 5px;
+    background: #111827;
+    color: white;
+    font-size: 8px;
+    padding: 3px 5px;
+    border-radius: 4px;
+}
