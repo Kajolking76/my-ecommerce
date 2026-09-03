@@ -602,26 +602,398 @@
 
 
     <section
-        id="customers"
-        class="admin-section"
-    >
+    id="products"
+    class="admin-section"
+>
 
-        <div class="section-placeholder">
+    <div class="product-header">
 
-            <div>👥</div>
+        <div>
+            <h2>Product Management</h2>
+            <p>আপনার সকল product এখান থেকে manage করুন।</p>
+        </div>
 
-            <h2>
-                Customer Management
-            </h2>
+        <button
+            class="add-product-btn"
+            onclick="openProductForm()"
+        >
+            + Add New Product
+        </button>
 
-            <p>
-                এই Section পরে তৈরি করা হবে।
-            </p>
+    </div>
+
+
+    <!-- PRODUCT STATS -->
+
+    <div class="product-stats">
+
+        <div class="product-stat-card">
+            <span>📦 Total Products</span>
+            <strong id="totalProducts">0</strong>
+        </div>
+
+        <div class="product-stat-card">
+            <span>✅ Active</span>
+            <strong id="activeProducts">0</strong>
+        </div>
+
+        <div class="product-stat-card warning">
+            <span>⚠️ Low Stock</span>
+            <strong id="lowStockProducts">0</strong>
+        </div>
+
+        <div class="product-stat-card danger">
+            <span>❌ Out of Stock</span>
+            <strong id="outOfStockProducts">0</strong>
+        </div>
+
+    </div>
+
+
+    <!-- SEARCH & FILTER -->
+
+    <div class="product-toolbar">
+
+        <input
+            type="search"
+            id="productSearch"
+            placeholder="🔍 Search product..."
+            oninput="filterProducts()"
+        >
+
+
+        <select
+            id="productCategoryFilter"
+            onchange="filterProducts()"
+        >
+            <option value="all">All Categories</option>
+            <option value="necklace">Necklace</option>
+            <option value="earrings">Earrings</option>
+            <option value="bracelet">Bracelet</option>
+            <option value="ring">Ring</option>
+            <option value="pendant">Pendant</option>
+            <option value="other">Other</option>
+        </select>
+
+
+        <select
+            id="productStockFilter"
+            onchange="filterProducts()"
+        >
+            <option value="all">All Stock</option>
+            <option value="in-stock">In Stock</option>
+            <option value="low-stock">Low Stock</option>
+            <option value="out-stock">Out of Stock</option>
+        </select>
+
+    </div>
+
+
+    <!-- PRODUCT TABLE -->
+
+    <div class="product-table-card">
+
+        <div class="product-table-header">
+
+            <h3>All Products</h3>
+
+            <span id="productCount">
+                0 Products
+            </span>
 
         </div>
 
-    </section>
 
+        <div class="product-table-wrapper">
+
+            <table class="product-table">
+
+                <thead>
+
+                    <tr>
+
+                        <th>Product</th>
+
+                        <th>Category</th>
+
+                        <th>Price</th>
+
+                        <th>Stock</th>
+
+                        <th>Status</th>
+
+                        <th>Actions</th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody id="productTableBody">
+
+                    <tr>
+
+                        <td
+                            colspan="6"
+                            class="no-products"
+                        >
+
+                            <div>📦</div>
+
+                            <strong>
+                                No Products Yet
+                            </strong>
+
+                            <p>
+                                Add your first product to get started.
+                            </p>
+
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+
+    <!-- ADD PRODUCT MODAL -->
+
+    <div
+        id="productModal"
+        class="product-modal"
+    >
+
+        <div class="product-modal-content">
+
+            <div class="product-modal-header">
+
+                <div>
+                    <h2>Add New Product</h2>
+                    <p>নতুন product-এর তথ্য দিন।</p>
+                </div>
+
+                <button
+                    class="close-product-modal"
+                    onclick="closeProductForm()"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+            <form
+                id="productForm"
+                onsubmit="saveProduct(event)"
+            >
+
+                <div class="form-grid">
+
+                    <div class="form-group full">
+
+                        <label>
+                            Product Name *
+                        </label>
+
+                        <input
+                            type="text"
+                            id="productName"
+                            placeholder="যেমন: Golden Necklace"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Category *
+                        </label>
+
+                        <select
+                            id="productCategory"
+                            required
+                        >
+
+                            <option value="">
+                                Select Category
+                            </option>
+
+                            <option value="necklace">
+                                Necklace
+                            </option>
+
+                            <option value="earrings">
+                                Earrings
+                            </option>
+
+                            <option value="bracelet">
+                                Bracelet
+                            </option>
+
+                            <option value="ring">
+                                Ring
+                            </option>
+
+                            <option value="pendant">
+                                Pendant
+                            </option>
+
+                            <option value="other">
+                                Other
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Stock Quantity *
+                        </label>
+
+                        <input
+                            type="number"
+                            id="productStock"
+                            min="0"
+                            placeholder="0"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Regular Price (৳) *
+                        </label>
+
+                        <input
+                            type="number"
+                            id="productPrice"
+                            min="0"
+                            placeholder="1000"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Sale Price (৳)
+                        </label>
+
+                        <input
+                            type="number"
+                            id="productSalePrice"
+                            min="0"
+                            placeholder="Optional"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group full">
+
+                        <label>
+                            Product Image URL
+                        </label>
+
+                        <input
+                            type="text"
+                            id="productImage"
+                            placeholder="product-image.jpg"
+                        >
+
+                        <small>
+                            পরে আমরা সরাসরি image upload system যোগ করব।
+                        </small>
+
+                    </div>
+
+
+                    <div class="form-group full">
+
+                        <label>
+                            Product Description
+                        </label>
+
+                        <textarea
+                            id="productDescription"
+                            rows="4"
+                            placeholder="Product সম্পর্কে বিস্তারিত লিখুন..."
+                        ></textarea>
+
+                    </div>
+
+
+                    <div class="form-options">
+
+                        <label class="checkbox-label">
+
+                            <input
+                                type="checkbox"
+                                id="productFeatured"
+                            >
+
+                            ⭐ Featured Product
+
+                        </label>
+
+
+                        <label class="checkbox-label">
+
+                            <input
+                                type="checkbox"
+                                id="productUpcoming"
+                            >
+
+                            🔜 Upcoming Product
+
+                        </label>
+
+                    </div>
+
+                </div>
+
+
+                <div class="product-form-actions">
+
+                    <button
+                        type="button"
+                        class="cancel-product-btn"
+                        onclick="closeProductForm()"
+                    >
+                        Cancel
+                    </button>
+
+                    <button
+                        type="submit"
+                        class="save-product-btn"
+                    >
+                        Save Product
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
 
 
     <section
