@@ -881,26 +881,31 @@
 
                     </div>
 
-
                     <div class="form-group full">
 
-                        <label>
-                            Product Image URL
-                        </label>
+    <label>
+        Product Images
+    </label>
 
-                        <input
-                            type="text"
-                            id="productImage"
-                            placeholder="product-image.jpg"
-                        >
+    <input
+        type="file"
+        id="productImages"
+        accept="image/*"
+        multiple
+    >
 
-                        <small>
-                            পরে আমরা সরাসরি image upload system যোগ করব।
-                        </small>
+    <small>
+        একাধিক ছবি নির্বাচন করতে পারবেন। প্রথম ছবিটি Main Image হিসেবে ব্যবহার হবে।
+    </small>
 
-                    </div>
+    <div
+        id="productImagePreview"
+        class="product-image-preview"
+    ></div>
 
+</div>
 
+                    
                     <div class="form-group full">
 
                         <label>
