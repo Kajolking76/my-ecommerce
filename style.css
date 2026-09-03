@@ -1316,3 +1316,96 @@ footer p{
 
     cursor: pointer !important;
 }
+
+/* =====================================================
+📱 MOBILE BOTTOM NAVIGATION
+===================================================== */
+
+.mobile-bottom-nav {
+    display: none;
+}
+
+@media (max-width: 699px) {
+
+    body {
+        padding-bottom: 75px;
+    }
+
+    .mobile-bottom-nav {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+
+        width: 100%;
+        height: 64px;
+
+        background: #ffffff;
+        border-top: 1px solid #e5e5e5;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+
+        z-index: 99999;
+
+        padding-bottom: env(safe-area-inset-bottom);
+        box-sizing: content-box;
+    }
+
+    .mobile-bottom-nav button {
+        border: none;
+        background: none;
+
+        width: 25%;
+        height: 64px;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        gap: 3px;
+
+        color: #333;
+        cursor: pointer;
+    }
+
+    .mobile-bottom-nav button span {
+        font-size: 22px;
+        line-height: 1;
+    }
+
+    .mobile-bottom-nav button small {
+        font-size: 11px;
+    }
+
+    .mobile-bottom-nav .bottom-cart span {
+        position: relative;
+    }
+
+    #bottomCartCount {
+        position: absolute;
+
+        top: -8px;
+        right: -12px;
+
+        min-width: 17px;
+        height: 17px;
+
+        padding: 0 4px;
+
+        background: #000;
+        color: #fff;
+
+        border-radius: 50%;
+
+        font-size: 10px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        box-sizing: border-box;
+    }
+}
+
