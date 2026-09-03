@@ -1465,7 +1465,6 @@ function getCartSubtotal(){
 /* =========================================================
 🔢 UPDATE CART COUNT
 ========================================================= */
-
 function updateCartCount(){
 
     const count =
@@ -1481,16 +1480,15 @@ function updateCartCount(){
     ).innerText =
     count;
 
+
+    const bottomCartCount =
+        document.getElementById("bottomCartCount");
+
+    if (bottomCartCount) {
+        bottomCartCount.innerText = count;
+    }
+
 }
-
-const bottomCartCount =
-    document.getElementById("bottomCartCount");
-
-if (bottomCartCount) {
-    bottomCartCount.innerText = count;
-}
-
-
 
 /* =========================================================
 🚚 SECTION 15: OPEN CHECKOUT
