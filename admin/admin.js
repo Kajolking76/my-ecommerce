@@ -240,8 +240,9 @@ function closeProductForm() {
 
 }
 
-
-/* SAVE PRODUCT */
+/* =====================================================
+   SAVE PRODUCT
+===================================================== */
 
 function saveProduct(event) {
 
@@ -261,13 +262,14 @@ function saveProduct(event) {
         Number(document.getElementById("productPrice").value);
 
     const salePrice =
-        Number(document.getElementById("productSalePrice").value) || 0;
-
-    const image =
-        document.getElementById("productImage").value.trim();
+        Number(
+            document.getElementById("productSalePrice").value
+        ) || 0;
 
     const description =
-        document.getElementById("productDescription").value.trim();
+        document.getElementById("productDescription")
+            .value
+            .trim();
 
     const featured =
         document.getElementById("productFeatured").checked;
@@ -299,15 +301,19 @@ function saveProduct(event) {
 
         salePrice: salePrice,
 
-        image: image,
+        image:
+            selectedProductImages.length
+                ? selectedProductImages[0]
+                : "",
 
-        images: selectedProductImages.length
-    ? selectedProductImages
-    : (image ? [image] : []),
+        images:
+            selectedProductImages.length
+                ? selectedProductImages
+                : [],
 
-        sizes: [],
+        sizes: [...productSizes],
 
-        colors: [],
+        colors: [...productColors],
 
         variants: [],
 
@@ -321,6 +327,8 @@ function saveProduct(event) {
 
     };
 
+
+    /* EDIT PRODUCT */
 
     if (editingProductId) {
 
@@ -336,19 +344,50 @@ function saveProduct(event) {
                 adminProducts[index];
 
 
-            product.images =
-                oldProduct.images ||
-                (oldProduct.image
-                    ? [oldProduct.image]
-                    : []);
+            /*
+             * নতুন ছবি না দিলে
+             * আগের ছবি থাকবে
+             */
+
+            if (selectedProductImages.length === 0) {
+
+                product.images =
+                    oldProduct.images ||
+                    (
+                        oldProduct.image
+                            ? [oldProduct.image]
+                            : []
+                    );
 
 
-            product.sizes =
-                oldProduct.sizes || [];
+                product.image =
+                    oldProduct.image || "";
+
+            }
 
 
-            product.colors =
-                oldProduct.colors || [];
+            /*
+             * Size না বদলালে আগের Size থাকবে
+             */
+
+            if (productSizes.length === 0) {
+
+                product.sizes =
+                    oldProduct.sizes || [];
+
+            }
+
+
+            /*
+             * Color না বদলালে আগের Color থাকবে
+             */
+
+            if (productColors.length === 0) {
+
+                product.colors =
+                    oldProduct.colors || [];
+
+            }
 
 
             product.variants =
@@ -374,6 +413,7 @@ function saveProduct(event) {
     closeProductForm();
 
 }
+
 
 /* LOCAL STORAGE */
 
