@@ -1483,6 +1483,13 @@ function updateCartCount(){
 
 }
 
+const bottomCartCount =
+    document.getElementById("bottomCartCount");
+
+if (bottomCartCount) {
+    bottomCartCount.innerText = count;
+}
+
 
 
 /* =========================================================
