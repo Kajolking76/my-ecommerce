@@ -100,6 +100,105 @@ let adminProducts = [];
 
 let editingProductId = null;
 
+/* =====================================================
+   MULTIPLE PRODUCT IMAGE PREVIEW
+===================================================== */
+
+let selectedProductImages = [];
+
+
+document.addEventListener("DOMContentLoaded", function() {
+
+    const imageInput =
+        document.getElementById("productImages");
+
+    if (!imageInput) return;
+
+
+    imageInput.addEventListener("change", function() {
+
+        selectedProductImages = [];
+
+        const files = Array.from(this.files);
+
+
+        files.forEach(function(file) {
+
+            if (!file.type.startsWith("image/")) {
+                return;
+            }
+
+
+            const reader = new FileReader();
+
+
+            reader.onload = function(event) {
+
+                selectedProductImages.push(
+                    event.target.result
+                );
+
+                renderImagePreview();
+
+            };
+
+
+            reader.readAsDataURL(file);
+
+        });
+
+    });
+
+});
+
+
+function renderImagePreview() {
+
+    const preview =
+        document.getElementById("productImagePreview");
+
+    if (!preview) return;
+
+
+    preview.innerHTML = "";
+
+
+    selectedProductImages.forEach(
+        function(image, index) {
+
+            const item =
+                document.createElement("div");
+
+            item.className =
+                "product-image-preview-item";
+
+
+            if (index === 0) {
+
+                item.classList.add(
+                    "product-image-main"
+                );
+
+            }
+
+
+            const img =
+                document.createElement("img");
+
+            img.src = image;
+
+            img.alt = "Product Image";
+
+
+            item.appendChild(img);
+
+            preview.appendChild(item);
+
+        }
+    );
+
+}
+
 
 /* OPEN PRODUCT FORM */
 
@@ -112,6 +211,15 @@ function openProductForm() {
     editingProductId = null;
 
     document.getElementById("productForm").reset();
+
+   selectedProductImages = [];
+
+const imagePreview =
+    document.getElementById("productImagePreview");
+
+if (imagePreview) {
+    imagePreview.innerHTML = "";
+}
 
     modal.classList.add("show");
 
@@ -193,7 +301,9 @@ function saveProduct(event) {
 
         image: image,
 
-        images: image ? [image] : [],
+        images: selectedProductImages.length
+    ? selectedProductImages
+    : (image ? [image] : []),
 
         sizes: [],
 
