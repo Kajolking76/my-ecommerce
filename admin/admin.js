@@ -193,6 +193,14 @@ function saveProduct(event) {
 
         image: image,
 
+        images: image ? [image] : [],
+
+        sizes: [],
+
+        colors: [],
+
+        variants: [],
+
         description: description,
 
         featured: featured,
@@ -211,9 +219,34 @@ function saveProduct(event) {
                 item => item.id === editingProductId
             );
 
+
         if (index !== -1) {
 
-            adminProducts[index] = product;
+            const oldProduct =
+                adminProducts[index];
+
+
+            product.images =
+                oldProduct.images ||
+                (oldProduct.image
+                    ? [oldProduct.image]
+                    : []);
+
+
+            product.sizes =
+                oldProduct.sizes || [];
+
+
+            product.colors =
+                oldProduct.colors || [];
+
+
+            product.variants =
+                oldProduct.variants || [];
+
+
+            adminProducts[index] =
+                product;
 
         }
 
@@ -231,7 +264,6 @@ function saveProduct(event) {
     closeProductForm();
 
 }
-
 
 /* LOCAL STORAGE */
 
