@@ -1122,15 +1122,104 @@ function addToCart(id){
 
 
     saveCart();
+updateCartCount();
 
-    updateCartCount();
-
-    alert(
-        "🛒 পণ্যটি Cart-এ যোগ হয়েছে!"
-    );
+animateAddToCart(product);
 
 }
 
+
+function animateAddToCart(product){
+
+    const cartButton =
+        document.querySelector(".bottom-cart");
+
+    if(!cartButton){
+        return;
+    }
+
+    const productImages =
+        document.querySelectorAll(
+            `.product-image-zoom[data-image="${product.image}"]`
+        );
+
+    if(!productImages.length){
+        return;
+    }
+
+    const source =
+        productImages[0];
+
+    const flyingImage =
+        source.cloneNode(true);
+
+    const start =
+        source.getBoundingClientRect();
+
+    const end =
+        cartButton.getBoundingClientRect();
+
+    flyingImage.classList.add(
+        "cart-flying-image"
+    );
+
+    flyingImage.style.left =
+        start.left + "px";
+
+    flyingImage.style.top =
+        start.top + "px";
+
+    flyingImage.style.width =
+        start.width + "px";
+
+    flyingImage.style.height =
+        start.height + "px";
+
+    document.body.appendChild(
+        flyingImage
+    );
+
+    requestAnimationFrame(function(){
+
+        flyingImage.style.left =
+            (
+                end.left +
+                end.width / 2 -
+                20
+            ) + "px";
+
+        flyingImage.style.top =
+            (
+                end.top +
+                end.height / 2 -
+                20
+            ) + "px";
+
+        flyingImage.style.width = "40px";
+        flyingImage.style.height = "40px";
+
+        flyingImage.style.opacity = "0";
+        flyingImage.style.transform =
+            "scale(0.3)";
+
+    });
+
+    setTimeout(function(){
+
+        flyingImage.remove();
+
+        cartButton.classList.add(
+            "cart-bounce"
+        );
+
+        setTimeout(function(){
+            cartButton.classList.remove(
+                "cart-bounce"
+            );
+        }, 500);
+
+    }, 650);
+}
 
 
 /* =========================================================
