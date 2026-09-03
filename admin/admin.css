@@ -527,3 +527,372 @@ body {
         width: 12px;
     }
 }
+
+/* =====================================================
+   PRODUCT MANAGEMENT
+===================================================== */
+
+.product-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.product-header h2 {
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+.product-header p {
+    color: #888;
+    font-size: 13px;
+}
+
+.add-product-btn {
+    border: none;
+    background: #111827;
+    color: white;
+    padding: 12px 18px;
+    border-radius: 9px;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.add-product-btn:hover {
+    opacity: 0.9;
+}
+
+
+/* PRODUCT STATS */
+
+.product-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    margin-bottom: 16px;
+}
+
+.product-stat-card {
+    background: white;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    padding: 17px;
+}
+
+.product-stat-card span {
+    display: block;
+    color: #777;
+    font-size: 12px;
+    margin-bottom: 8px;
+}
+
+.product-stat-card strong {
+    font-size: 23px;
+}
+
+.product-stat-card.warning strong {
+    color: #e49a00;
+}
+
+.product-stat-card.danger strong {
+    color: #d93636;
+}
+
+
+/* TOOLBAR */
+
+.product-toolbar {
+    background: white;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    padding: 14px;
+    display: flex;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.product-toolbar input,
+.product-toolbar select {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 11px 12px;
+    outline: none;
+    background: white;
+}
+
+.product-toolbar input {
+    flex: 1;
+}
+
+.product-toolbar input:focus,
+.product-toolbar select:focus {
+    border-color: #999;
+}
+
+
+/* TABLE */
+
+.product-table-card {
+    background: white;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.product-table-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px;
+    border-bottom: 1px solid #eee;
+}
+
+.product-table-header h3 {
+    font-size: 15px;
+}
+
+.product-table-header span {
+    color: #888;
+    font-size: 12px;
+}
+
+.product-table-wrapper {
+    overflow-x: auto;
+}
+
+.product-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 700px;
+}
+
+.product-table th {
+    background: #fafafa;
+    color: #777;
+    font-size: 11px;
+    text-align: left;
+    padding: 13px;
+    border-bottom: 1px solid #eee;
+}
+
+.product-table td {
+    padding: 13px;
+    border-bottom: 1px solid #eee;
+    font-size: 12px;
+}
+
+.no-products {
+    text-align: center !important;
+    padding: 60px 20px !important;
+    color: #999;
+}
+
+.no-products div {
+    font-size: 35px;
+    margin-bottom: 10px;
+}
+
+.no-products strong {
+    display: block;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+.no-products p {
+    font-size: 11px;
+}
+
+
+/* PRODUCT MODAL */
+
+.product-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.product-modal.show {
+    display: flex;
+}
+
+.product-modal-content {
+    background: white;
+    width: 100%;
+    max-width: 700px;
+    max-height: 90vh;
+    overflow-y: auto;
+    border-radius: 15px;
+    padding: 22px;
+}
+
+.product-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 22px;
+}
+
+.product-modal-header h2 {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.product-modal-header p {
+    color: #888;
+    font-size: 11px;
+}
+
+.close-product-modal {
+    border: none;
+    background: #f3f3f3;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+
+/* FORM */
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.form-group.full {
+    grid-column: 1 / -1;
+}
+
+.form-group label {
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 11px;
+    font-family: inherit;
+    outline: none;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.form-group small {
+    color: #999;
+    font-size: 10px;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #888;
+}
+
+.form-options {
+    grid-column: 1 / -1;
+    display: flex;
+    gap: 25px;
+    padding-top: 5px;
+}
+
+.checkbox-label {
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    cursor: pointer;
+}
+
+.product-form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 25px;
+    padding-top: 18px;
+    border-top: 1px solid #eee;
+}
+
+.cancel-product-btn,
+.save-product-btn {
+    border: none;
+    padding: 11px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.cancel-product-btn {
+    background: #f1f1f1;
+    color: #555;
+}
+
+.save-product-btn {
+    background: #111827;
+    color: white;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+    .product-header {
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .product-header h2 {
+        font-size: 20px;
+    }
+
+    .add-product-btn {
+        white-space: nowrap;
+        padding: 10px 12px;
+        font-size: 11px;
+    }
+
+    .product-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .product-toolbar {
+        flex-direction: column;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-group.full {
+        grid-column: auto;
+    }
+
+    .form-options {
+        grid-column: auto;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .product-modal-content {
+        padding: 17px;
+    }
+}
