@@ -1409,3 +1409,49 @@ footer p{
     }
 }
 
+/* =====================================================
+🛒 ADD TO CART ANIMATION
+===================================================== */
+
+.cart-flying-image {
+    position: fixed;
+    z-index: 1000000;
+
+    object-fit: cover;
+
+    border-radius: 12px;
+
+    pointer-events: none;
+
+    transition:
+        left 0.6s ease-in-out,
+        top 0.6s ease-in-out,
+        width 0.6s ease-in-out,
+        height 0.6s ease-in-out,
+        opacity 0.6s ease-in-out,
+        transform 0.6s ease-in-out;
+}
+
+.cart-bounce {
+    animation: cartBounce 0.5s ease;
+}
+
+@keyframes cartBounce {
+
+    0% {
+        transform: scale(1);
+    }
+
+    40% {
+        transform: scale(1.3);
+    }
+
+    70% {
+        transform: scale(0.9);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+
+}
