@@ -1,1 +1,726 @@
+<!DOCTYPE html>
+<html lang="bn">
 
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Shokher Kunjo — Admin Panel</title>
+
+    <link
+        rel="stylesheet"
+        href="admin.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     ADMIN SIDEBAR
+===================================================== -->
+
+<aside class="admin-sidebar">
+
+    <div class="admin-logo">
+
+        <div class="admin-logo-icon">
+            SK
+        </div>
+
+        <div>
+            <h2>Shokher Kunjo</h2>
+            <span>Admin Panel</span>
+        </div>
+
+    </div>
+
+
+    <nav class="admin-menu">
+
+        <button
+            class="menu-item active"
+            onclick="showAdminSection('dashboard')"
+        >
+            <span>🏠</span>
+            Dashboard
+        </button>
+
+
+        <button
+            class="menu-item"
+            onclick="showAdminSection('products')"
+        >
+            <span>📦</span>
+            Products
+        </button>
+
+
+        <button
+            class="menu-item"
+            onclick="showAdminSection('orders')"
+        >
+            <span>🛒</span>
+            Orders
+        </button>
+
+
+        <button
+            class="menu-item"
+            onclick="showAdminSection('customers')"
+        >
+            <span>👥</span>
+            Customers
+        </button>
+
+
+        <button
+            class="menu-item"
+            onclick="showAdminSection('marketing')"
+        >
+            <span>🎯</span>
+            Marketing
+        </button>
+
+
+        <button
+            class="menu-item"
+            onclick="showAdminSection('reports')"
+        >
+            <span>📊</span>
+            Sales Reports
+        </button>
+
+
+        <button
+            class="menu-item"
+            onclick="showAdminSection('reviews')"
+        >
+            <span>⭐</span>
+            Reviews
+        </button>
+
+
+        <button
+            class="menu-item"
+            onclick="showAdminSection('settings')"
+        >
+            <span>⚙️</span>
+            Settings
+        </button>
+
+    </nav>
+
+
+    <div class="admin-sidebar-bottom">
+
+        <button class="view-site-btn">
+            🌐 View Website
+        </button>
+
+        <button class="logout-btn">
+            🔐 Logout
+        </button>
+
+    </div>
+
+</aside>
+
+
+
+<!-- =====================================================
+     MAIN AREA
+===================================================== -->
+
+<main class="admin-main">
+
+
+    <!-- TOP BAR -->
+
+    <header class="admin-header">
+
+        <div>
+
+            <h1 id="pageTitle">
+                Dashboard
+            </h1>
+
+            <p>
+                আপনার ব্যবসার বর্তমান অবস্থা এক নজরে দেখুন।
+            </p>
+
+        </div>
+
+
+        <div class="admin-profile">
+
+            <div class="notification">
+                🔔
+                <span>3</span>
+            </div>
+
+
+            <div class="profile-avatar">
+                A
+            </div>
+
+
+            <div class="profile-info">
+
+                <strong>
+                    Admin
+                </strong>
+
+                <small>
+                    Super Admin
+                </small>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =================================================
+         DASHBOARD SECTION
+    ================================================= -->
+
+    <section
+        id="dashboard"
+        class="admin-section active-section"
+    >
+
+
+        <!-- STAT CARDS -->
+
+        <div class="stats-grid">
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon sales-icon">
+                    💰
+                </div>
+
+                <div>
+
+                    <span>
+                        Total Sales
+                    </span>
+
+                    <h2>
+                        ৳0
+                    </h2>
+
+                    <small class="positive">
+                        This Month
+                    </small>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon order-icon">
+                    🛒
+                </div>
+
+                <div>
+
+                    <span>
+                        Total Orders
+                    </span>
+
+                    <h2>
+                        0
+                    </h2>
+
+                    <small>
+                        This Month
+                    </small>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon product-icon">
+                    📦
+                </div>
+
+                <div>
+
+                    <span>
+                        Products
+                    </span>
+
+                    <h2>
+                        0
+                    </h2>
+
+                    <small>
+                        Active Products
+                    </small>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon customer-icon">
+                    👥
+                </div>
+
+                <div>
+
+                    <span>
+                        Customers
+                    </span>
+
+                    <h2>
+                        0
+                    </h2>
+
+                    <small>
+                        Registered
+                    </small>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- SECONDARY STATS -->
+
+        <div class="small-stats-grid">
+
+
+            <div class="small-stat">
+
+                <span>
+                    ⏳ Pending Orders
+                </span>
+
+                <strong>
+                    0
+                </strong>
+
+            </div>
+
+
+            <div class="small-stat warning">
+
+                <span>
+                    ⚠️ Low Stock
+                </span>
+
+                <strong>
+                    0
+                </strong>
+
+            </div>
+
+
+            <div class="small-stat danger">
+
+                <span>
+                    ❌ Out of Stock
+                </span>
+
+                <strong>
+                    0
+                </strong>
+
+            </div>
+
+
+            <div class="small-stat">
+
+                <span>
+                    🔜 Upcoming
+                </span>
+
+                <strong>
+                    0
+                </strong>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- CONTENT GRID -->
+
+        <div class="dashboard-grid">
+
+
+            <!-- SALES OVERVIEW -->
+
+            <div class="dashboard-card sales-overview">
+
+                <div class="card-header">
+
+                    <div>
+
+                        <h3>
+                            Sales Overview
+                        </h3>
+
+                        <p>
+                            Monthly sales performance
+                        </p>
+
+                    </div>
+
+
+                    <select>
+
+                        <option>
+                            This Year
+                        </option>
+
+                        <option>
+                            Last Year
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="chart-placeholder">
+
+                    <div class="chart-line">
+
+                        <span>৳</span>
+
+                        <div class="chart-bars">
+
+                            <i style="height:25%"></i>
+                            <i style="height:42%"></i>
+                            <i style="height:32%"></i>
+                            <i style="height:55%"></i>
+                            <i style="height:48%"></i>
+                            <i style="height:72%"></i>
+                            <i style="height:62%"></i>
+                            <i style="height:80%"></i>
+                            <i style="height:68%"></i>
+                            <i style="height:90%"></i>
+                            <i style="height:76%"></i>
+                            <i style="height:95%"></i>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="chart-months">
+
+                        <span>Jan</span>
+                        <span>Feb</span>
+                        <span>Mar</span>
+                        <span>Apr</span>
+                        <span>May</span>
+                        <span>Jun</span>
+                        <span>Jul</span>
+                        <span>Aug</span>
+                        <span>Sep</span>
+                        <span>Oct</span>
+                        <span>Nov</span>
+                        <span>Dec</span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- TOP PRODUCTS -->
+
+            <div class="dashboard-card">
+
+                <div class="card-header">
+
+                    <div>
+
+                        <h3>
+                            Top Selling Products
+                        </h3>
+
+                        <p>
+                            Best performing products
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="empty-dashboard">
+
+                    <div>
+                        📦
+                    </div>
+
+                    <strong>
+                        No sales data yet
+                    </strong>
+
+                    <p>
+                        Products sales will appear here.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- RECENT ORDERS -->
+
+        <div class="dashboard-card recent-orders">
+
+            <div class="card-header">
+
+                <div>
+
+                    <h3>
+                        Recent Orders
+                    </h3>
+
+                    <p>
+                        সর্বশেষ customer orders
+                    </p>
+
+                </div>
+
+
+                <button>
+                    View All →
+                </button>
+
+            </div>
+
+
+            <div class="empty-dashboard">
+
+                <div>
+                    🛒
+                </div>
+
+                <strong>
+                    No orders yet
+                </strong>
+
+                <p>
+                    Customer orders will appear here.
+                </p>
+
+            </div>
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =================================================
+         OTHER SECTIONS
+    ================================================= -->
+
+    <section
+        id="products"
+        class="admin-section"
+    >
+
+        <div class="section-placeholder">
+
+            <div>📦</div>
+
+            <h2>
+                Product Management
+            </h2>
+
+            <p>
+                এই Section আমরা পরের ধাপে তৈরি করব।
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <section
+        id="orders"
+        class="admin-section"
+    >
+
+        <div class="section-placeholder">
+
+            <div>🛒</div>
+
+            <h2>
+                Order Management
+            </h2>
+
+            <p>
+                এই Section পরে তৈরি করা হবে।
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <section
+        id="customers"
+        class="admin-section"
+    >
+
+        <div class="section-placeholder">
+
+            <div>👥</div>
+
+            <h2>
+                Customer Management
+            </h2>
+
+            <p>
+                এই Section পরে তৈরি করা হবে।
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <section
+        id="marketing"
+        class="admin-section"
+    >
+
+        <div class="section-placeholder">
+
+            <div>🎯</div>
+
+            <h2>
+                Marketing Center
+            </h2>
+
+            <p>
+                Discount, Coupon, Flash Sale এবং Promotion এখানে থাকবে।
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <section
+        id="reports"
+        class="admin-section"
+    >
+
+        <div class="section-placeholder">
+
+            <div>📊</div>
+
+            <h2>
+                Sales Reports
+            </h2>
+
+            <p>
+                Monthly এবং Product-wise sales report এখানে থাকবে।
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <section
+        id="reviews"
+        class="admin-section"
+    >
+
+        <div class="section-placeholder">
+
+            <div>⭐</div>
+
+            <h2>
+                Review Management
+            </h2>
+
+            <p>
+                Customer reviews এখান থেকে manage করা হবে।
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <section
+        id="settings"
+        class="admin-section"
+    >
+
+        <div class="section-placeholder">
+
+            <div>⚙️</div>
+
+            <h2>
+                Website Settings
+            </h2>
+
+            <p>
+                Website-এর বিভিন্ন settings এখান থেকে control করা হবে।
+            </p>
+
+        </div>
+
+    </section>
+
+
+</main>
+
+
+
+<script src="admin.js"></script>
+
+</body>
+
+</html>
